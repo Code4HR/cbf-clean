@@ -1,0 +1,14 @@
+/* CSS declarations go here */
+.help-inline {
+  display: none;
+}
+
+.center { 
+  float: none; 
+  margin-left: auto; 
+  margin-right: auto; 
+}
+
+.center-text {
+  text-align: center;
+}

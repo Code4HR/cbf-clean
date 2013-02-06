@@ -1,0 +1,162 @@
+<head>
+  <title>CBF Clean the Bay Day 2013</title>
+</head>
+
+<body>
+  <div class="container">
+  {{> hello}}
+</div>
+</body>
+
+<template name="hello">
+  <div class="hero-unit">
+    <h1>Clean the Bay Day 2013</br>Zone Reporting</h1>
+    <h3>Fill out this awesome form to tell of your good deeds.</h3>
+  </div>
+  <div class="row center-text">
+    <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
+  </div>
+</template>
+
+<template name="createDialog">
+<div class="mask"> </div>
+  <div class="modal">
+    <div class="modal-header">
+      <button type="button" class="close cancel">&times;</button>
+      <h3>Add party</h3>
+    </div>
+    
+    <div class="modal-body">
+      {{#if error}}
+        <div class="alert alert-error">{{error}}</div>
+      {{/if}}
+      
+  <div class="row">
+  <div class="control-group center span4">
+    <label for="zoneCaptain" class="control-label">Zone Captain</label>
+    <div class="controls">
+      <input type="text" class="span4" name="zoneCaptain" id="zoneCaptain">
+      <span class="help-inline">Captain's name is required</span>
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="partner" class="control-label">City/County</label>
+    <div class="controls">
+        <select name="partner" id="partner">
+          {{# each partners}}
+            {{> partner}}
+          {{/each}}
+        </select>
+        <span class="help-inline">Please pick a location or choose not listed and write in zone below</span>
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="zone" class="control-label">Cleanup Zone</label>
+    <div class="controls">
+      <input type="text" class="span4" name="zone" id="zone">
+      <span class="help-inline">Zone is required, if you don't know it, please describe locations you cleaned</span>
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="volunteers" class="control-label">Volunteers</label>
+    <div class="controls">
+       <input type="number" class="span2" name="volunteers" id="volunteers">
+    </div>
+  </div>
+  <div class="control-group center span4">
+    <label for="activeMilitary" class="control-label">Active Military</label>
+    <div class="controls">
+       <input type="number" class="span2" name="activeMilitary" id="activeMilitary">
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="boats" class="control-label">Boats</label>
+    <div class="controls">
+       <input type="number" class="span2" name="boats" id="boats">
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="poundsCollected" class="control-label">Pounds Collected</label>
+    <div class="controls">
+       <input type="number" class="span2" name="poundsCollected" id="poundsCollected">
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="milesCleaned" class="control-label">Miles Cleaned</label>
+    <div class="controls">
+       <input type="number" class="span2" name="milesCleaned" id="milesCleaned">
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="mostUnusualItem" class="control-label">Most Unusual Item</label>
+    <div class="controls">
+      <input type="text" class="span4" name="mostUnusualItem" id="mostUnusualItem">
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="mostCommonItem" class="control-label">Most Common Item</label>
+    <div class="controls">
+      <input type="text" class="span4" name="mostCommonItem" id="mostCommonItem">
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="largestItem" class="control-label">Largest Item</label>
+    <div class="controls">
+      <input type="text" class="span4" name="largestItem" id="largestItem">
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="trashPickup" class="control-label">Trash Pickup</label>
+    <div class="controls">
+      <select name="trashPickup" class="span2" id="trashPickup">
+        <option value="false" selected>no</option>
+        <option value="true">yes</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="picknic" class="control-label">Attending Picknic</label>
+    <div class="controls">
+      <select name="picknic", class="span2" id="picknic">
+        <option value="false" selected>no</option>
+        <option value="true">yes</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="modal-footer span4">
+      <a href="#" class="btn cancel">Cancel</a>
+      <a href="#" class="btn btn-primary save">Submit Report</a>
+  </div>
+
+    {{#each zoneReports}}
+      <span>Zone Report Submitted For: 
+      {{> zoneReport}}
+      </span>
+    {{/each}}
+  </div>
+  </div>
+  </div>
+</template>
+
+<template name="partner">
+    <option>
+      {{name}}
+    </option>
+  </template>
+
+<template name="zoneReport">
+  {{zoneCaptain}}
+</template>
+
