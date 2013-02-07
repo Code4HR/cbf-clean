@@ -16,6 +16,9 @@
   <div class="row center-text">
     <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
   </div>
+  {{#if showCreateDialog}}
+    {{> createDialog}}
+  {{/if}}
 </template>
 
 <template name="createDialog">
@@ -66,19 +69,6 @@
        <input type="number" class="span2" name="volunteers" id="volunteers">
     </div>
   </div>
-  <div class="control-group center span4">
-    <label for="activeMilitary" class="control-label">Active Military</label>
-    <div class="controls">
-       <input type="number" class="span2" name="activeMilitary" id="activeMilitary">
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="boats" class="control-label">Boats</label>
-    <div class="controls">
-       <input type="number" class="span2" name="boats" id="boats">
-    </div>
-  </div>
 
   <div class="control-group center span4">
     <label for="poundsCollected" class="control-label">Pounds Collected</label>
@@ -112,6 +102,20 @@
     <label for="largestItem" class="control-label">Largest Item</label>
     <div class="controls">
       <input type="text" class="span4" name="largestItem" id="largestItem">
+    </div>
+  </div>
+
+<div class="control-group center span4">
+    <label for="activeMilitary" class="control-label">Active Military</label>
+    <div class="controls">
+       <input type="number" class="span2" name="activeMilitary" id="activeMilitary">
+    </div>
+  </div>
+
+  <div class="control-group center span4">
+    <label for="boats" class="control-label">Boats</label>
+    <div class="controls">
+       <input type="number" class="span2" name="boats" id="boats">
     </div>
   </div>
 
