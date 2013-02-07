@@ -1,4 +1,4 @@
-cbfApp-meteor
+cbf-clean
 =============
 
 Meteor.js node web app for Clean the Bay Foundation (CBD2013)
