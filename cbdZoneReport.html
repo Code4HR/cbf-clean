@@ -3,37 +3,59 @@
 </head>
 
 <body>
+{{> navbar}}
   <div class="container">
   {{> hello}}
 </div>
 </body>
 
+<template name="navbar">
+    <div class="navbar">
+  <div class="navbar-inner">
+    <ul class="nav">
+      <li class="active"><a href="#">Dashboard</a></li>
+      <li><a href="#" class="btn-reporting">Reporting</a></li>
+      </ul>
+  </div>
+</div>
+</template>
+
 <template name="hello">
-  <div class="hero-unit">
+  <div class="hero-unit center-text">
     <h1>Clean the Bay Day 2013</br>Zone Reporting</h1>
     <h3>Fill out this awesome form to tell of your good deeds.</h3>
   </div>
-  <div class="row center-text">
-    <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
-  </div>
+
+  {{#each zoneReports}}
+      <span>Zone Report Submitted For: 
+      {{> zoneReport}}</br>
+      </span>
+    {{/each}}
+
   {{#if showCreateDialog}}
     {{> createDialog}}
+  {{else}}
+    {{> zoneButton}}
   {{/if}}
 </template>
 
-<template name="createDialog">
-<div class="mask"> </div>
-  <div class="modal">
-    <div class="modal-header">
-      <button type="button" class="close cancel">&times;</button>
-      <h3>Add party</h3>
-    </div>
-    
-    <div class="modal-body">
-      {{#if error}}
-        <div class="alert alert-error">{{error}}</div>
-      {{/if}}
-      
+<template name="reportMain">
+  <div class="row">
+          <select name="partner" id="partner">
+          {{# each partners}}
+            {{> partner}}
+          {{/each}}
+        </select>
+  </div>
+</template>
+
+<template name="zoneButton">
+<div class="row center-text">
+    <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
+  </div>
+  </template>
+
+<template name="createDialog">          
   <div class="row">
   <div class="control-group center span4">
     <label for="zoneCaptain" class="control-label">Zone Captain</label>
@@ -139,18 +161,15 @@
     </div>
   </div>
 
-  <div class="modal-footer span4">
-      <a href="#" class="btn cancel">Cancel</a>
+  <div class="center span4">
+      <a href="#" class="btn cancel">Cancel</a> &nbsp; &nbsp;
       <a href="#" class="btn btn-primary save">Submit Report</a>
-  </div>
+  </div></br>
+  <footer>
+stuff in footer (c) <i><strong>awesome sauce</strong></i>
+  </footer>
 
-    {{#each zoneReports}}
-      <span>Zone Report Submitted For: 
-      {{> zoneReport}}
-      </span>
-    {{/each}}
-  </div>
-  </div>
+    </div>
   </div>
 </template>
 
@@ -161,6 +180,6 @@
   </template>
 
 <template name="zoneReport">
-  {{zoneCaptain}}
+  {{zoneCaptain}} / {{partner}} / {{zone}}
 </template>
 

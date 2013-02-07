@@ -7,28 +7,59 @@ if (Meteor.isClient) {
 // Create Report dialog
 
   var openCreateDialog = function () {
-  Session.set("createError", null);
   Session.set("showCreateDialog", true);
+  Session.set("showReportButton", false);
 };
+
+  var closeCreateForm = function () {
+    Session.set("showCreateDialog", false);
+    Session.set("showReportButton", true);
+  };
+
+var reportsMainOpen = function () {
+    Session.set("showCreateDialog", false);
+    Session.set("showReportButton", false);
+    Session.set("showHelloMain", false);
+}
+
+Template.hello.showHelloMain = function () {
+  return Session.get("hello");
+}
 
 Template.hello.showCreateDialog = function () {
   return Session.get("showCreateDialog");
 };
 
-Template.createDialog.error = function () {
-  return Session.get("createError");
+Template.hello.showReportButton = function () {
+  return Session.get("showReportButton");
+}
+
+
+
+Template.createDialog.partners = function () {
+  return Partners.find({}, {sort: {name: 1}});
 };
 
-///////////////////////////////////////////////////////////////////////////////
-// form filling
+Template.reportMain.partners = function () {
+  return Partners.find({}, {sort: {name: 1}});
+};  
 
-  Template.createDialog.partners = function () {
-    return Partners.find({}, {sort: {name: 1}});
+
+
+  Template.createDialog.closeCreateForm = function () {
+    return Session.get("closeCreateForm");
   };
 
 Template.hello.zoneReports = function () {
     return ZoneReports.find({}, {sort: {zoneCaptain: 1}});
   };
+
+Template.navbar.events({
+  'click .btn-reporting' : function () {
+    reportsMainOpen();
+    console.log("clicked reports button");
+  }
+})
 
 Template.hello.events({
   'click .btn-large' : function () {
@@ -39,7 +70,7 @@ Template.hello.events({
 Template.createDialog.events({
   'click .save' : function () {
     // template data, if any, is available in 'this'
-    if (typeof console !== 'undefined')
+    if (typeof console !== 'undefined') {  //why do I do this first?
       console.log("You pressed the button");
       console.log(document.getElementById("zoneCaptain").value);
       ZoneReports.insert({
@@ -57,6 +88,8 @@ Template.createDialog.events({
                 trashPickup: document.getElementById("trashPickup").value,
                 picknic: document.getElementById("picknic").value
       });
+    }
+    closeCreateForm();
     }
   });
 }
