@@ -4,74 +4,39 @@ ZoneReports = new Meteor.Collection("zoneReports");
 if (Meteor.isClient) {
 
 ///////////////////////////////////////////////////////////////////////////////
-// Create Report dialog
+// Create Zone Report Form
 
-  var openCreateDialog = function () {
-  Session.set("showCreateDialog", true);
-  Session.set("showReportButton", false);
+
+Template.page.iWantAddZoneReport = function () {
+  return Session.get("iWantAddZoneReport");
 };
 
-  var closeCreateForm = function () {
-    Session.set("showCreateDialog", false);
-    Session.set("showReportButton", true);
-  };
-
-var reportsMainOpen = function () {
-    Session.set("showCreateDialog", false);
-    Session.set("showReportButton", false);
-    Session.set("showHelloMain", false);
-}
-
-Template.hello.showHelloMain = function () {
-  return Session.get("hello");
-}
-
-Template.hello.showCreateDialog = function () {
-  return Session.get("showCreateDialog");
-};
-
-Template.hello.showReportButton = function () {
-  return Session.get("showReportButton");
-}
-
-
-
-Template.createDialog.partners = function () {
-  return Partners.find({}, {sort: {name: 1}});
-};
-
-Template.reportMain.partners = function () {
-  return Partners.find({}, {sort: {name: 1}});
-};  
-
-
-
-  Template.createDialog.closeCreateForm = function () {
-    return Session.get("closeCreateForm");
-  };
-
-Template.hello.zoneReports = function () {
-    return ZoneReports.find({}, {sort: {zoneCaptain: 1}});
-  };
-
-Template.navbar.events({
-  'click .btn-reporting' : function () {
-    reportsMainOpen();
-    console.log("clicked reports button");
-  }
-})
-
-Template.hello.events({
-  'click .btn-large' : function () {
-    openCreateDialog();
+Template.showZoneReportButton.events({
+  'click .zone-report' : function () {
+    openZoneReportForm();
+    console.log("clicked zone reports button");
   }
 });
 
-Template.createDialog.events({
+var openZoneReportForm = function () {
+  Session.set("iWantAddZoneReport", true);
+  console.log("ran the function");
+};
+
+var closeZoneReportForm = function () {
+  Session.set("showZoneReportForm", false);
+  Session.set("showZoneReportButton", true);
+  };
+
+Template.showZoneReportForm.partners = function () {
+  return Partners.find({}, {sort: {name: 1}});
+};
+
+Template.showZoneReportForm.events({
   'click .save' : function () {
     // template data, if any, is available in 'this'
     if (typeof console !== 'undefined') {  //why do I do this first?
-      console.log("You pressed the button");
+      console.log("You pressed submit");
       console.log(document.getElementById("zoneCaptain").value);
       ZoneReports.insert({
                 zoneCaptain: document.getElementById("zoneCaptain").value,
@@ -89,8 +54,7 @@ Template.createDialog.events({
                 picknic: document.getElementById("picknic").value
       });
     }
-    closeCreateForm();
+    closeZoneReportForm();
     }
   });
 }
-

@@ -1,63 +1,57 @@
 <head>
   <title>CBF Clean the Bay Day 2013</title>
+  <link rel='stylesheet' type='text/css' href='http://bootswatch.com/cerulean/bootstrap.css' />
+<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 
 <body>
-{{> navbar}}
-  <div class="container">
-  {{> hello}}
-</div>
+  {{> page}}
 </body>
 
-<template name="navbar">
-    <div class="navbar">
-  <div class="navbar-inner">
-    <ul class="nav">
-      <li class="active"><a href="#">Dashboard</a></li>
-      <li><a href="#" class="btn-reporting">Reporting</a></li>
-      </ul>
+<template name="page">
+  {{> navbar}}
+  <div class="container">
+      {{> dashboard}}
   </div>
-</div>
 </template>
 
-<template name="hello">
+<template name="navbar">
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav"> 
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#" class="btn-reporting">Reporting</a></li>
+        </ul>
+    </div>
+  </div>
+</template>
+
+<template name="dashboard">
+  {{#if iWantAddZoneReport}}
+    {{> showZoneReportForm}}
+  {{else}}
+    {{> showWelcomeBanner}}
+    {{> showZoneReportButton}}
+  {{/if}}
+</template>
+
+<template name="showWelcomeBanner">
   <div class="hero-unit center-text">
     <h1>Clean the Bay Day 2013</br>Zone Reporting</h1>
     <h3>Fill out this awesome form to tell of your good deeds.</h3>
   </div>
-
-<!-- 
-  {{!#each zoneReports}}
-      <span>Zone Report Submitted For: 
-      {{!> zoneReport}}</br>
-      </span>
-    {{!/each}}
- -->
-
-  {{#if showCreateDialog}}
-    {{> createDialog}}
-  {{else}}
-    {{> zoneButton}}
-  {{/if}}
 </template>
 
-<template name="reportMain">
-  <div class="row">
-          <select name="partner" id="partner">
-          {{# each partners}}
-            {{> partner}}
-          {{/each}}
-        </select>
+<template name="showZoneReportButton">
+  <div class="row center-text">
+    <a href="#" class="btn btn-primary btn-large zone-report">
+      Click to Create Zone Report
+    </a>
   </div>
 </template>
 
-<template name="zoneButton">
-<div class="row center-text">
-    <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
-  </div>
-  </template>
-
-<template name="createDialog">          
+<template name="showZoneReportForm">          
   <div class="row">
   <div class="control-group center span4">
     <label for="zoneCaptain" class="control-label">Zone Captain</label>
@@ -129,7 +123,7 @@
     </div>
   </div>
 
-<div class="control-group center span4">
+  <div class="control-group center span4">
     <label for="activeMilitary" class="control-label">Active Military</label>
     <div class="controls">
        <input type="number" class="span2" name="activeMilitary" id="activeMilitary">
@@ -168,7 +162,7 @@
       <a href="#" class="btn btn-primary save">Submit Report</a>
   </div></br>
   <footer>
-stuff in footer (c) <i><strong>awesome sauce</strong></i>
+    stuff in footer (c) <i><strong>awesome sauce</strong></i>
   </footer>
 
     </div>
@@ -180,8 +174,4 @@ stuff in footer (c) <i><strong>awesome sauce</strong></i>
       {{name}}
     </option>
   </template>
-
-<template name="zoneReport">
-  {{zoneCaptain}} / {{partner}} / {{zone}}
-</template>
 
