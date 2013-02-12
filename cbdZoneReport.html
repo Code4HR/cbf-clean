@@ -1,185 +1,176 @@
 <head>
   <title>CBF Clean the Bay Day 2013</title>
+  <link rel='stylesheet' type='text/css' href='http://bootswatch.com/cerulean/bootstrap.css' />
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 
 <body>
-{{> navbar}}
+  {{> navbar}}
   <div class="container">
-  {{> hello}}
-</div>
+    {{> hello}}
+  </div>
 </body>
 
 <template name="navbar">
-    <div class="navbar">
-  <div class="navbar-inner">
-    <ul class="nav">
-      <li class="active"><a href="#">Dashboard</a></li>
-      <li><a href="#" class="btn-reporting">Reporting</a></li>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <ul class="nav">
+        <li class="active"><a href="#">Dashboard</a></li>
+        <li><a href="#" class="btn-reporting">Reporting</a></li>
       </ul>
+    </div>
   </div>
-</div>
 </template>
 
 <template name="hello">
   <div class="hero-unit center-text">
-    <h1>Clean the Bay Day 2013</br>Zone Reporting</h1>
+    <h1>Clean the Bay Day 2013<br/>Zone Reporting</h1>
     <h3>Fill out this awesome form to tell of your good deeds.</h3>
   </div>
-
-<!-- 
-  {{!#each zoneReports}}
-      <span>Zone Report Submitted For: 
-      {{!> zoneReport}}</br>
-      </span>
-    {{!/each}}
- -->
-
   {{#if showCreateDialog}}
-    {{> createDialog}}
+  {{> createDialog}}
   {{else}}
-    {{> zoneButton}}
+  {{> zoneButton}}
   {{/if}}
 </template>
 
 <template name="reportMain">
   <div class="row">
-          <select name="partner" id="partner">
-          {{# each partners}}
-            {{> partner}}
-          {{/each}}
-        </select>
+    <select name="partner" id="partner">
+      {{# each partners}}
+      {{> partner}}
+      {{/each}}
+    </select>
   </div>
 </template>
 
 <template name="zoneButton">
-<div class="row center-text">
+  <div class="row center-text">
     <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
-  </div>
-  </template>
-
-<template name="createDialog">          
-  <div class="row">
-  <div class="control-group center span4">
-    <label for="zoneCaptain" class="control-label">Zone Captain</label>
-    <div class="controls">
-      <input type="text" class="span4" name="zoneCaptain" id="zoneCaptain">
-      <span class="help-inline">Captain's name is required</span>
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="partner" class="control-label">City/County</label>
-    <div class="controls">
-        <select name="partner" id="partner">
-          {{# each partners}}
-            {{> partner}}
-          {{/each}}
-        </select>
-        <span class="help-inline">Please pick a location or choose not listed and write in zone below</span>
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="zone" class="control-label">Cleanup Zone</label>
-    <div class="controls">
-      <input type="text" class="span4" name="zone" id="zone">
-      <span class="help-inline">Zone is required, if you don't know it, please describe locations you cleaned</span>
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="volunteers" class="control-label">Volunteers</label>
-    <div class="controls">
-       <input type="number" class="span2" name="volunteers" id="volunteers">
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="poundsCollected" class="control-label">Pounds Collected</label>
-    <div class="controls">
-       <input type="number" class="span2" name="poundsCollected" id="poundsCollected">
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="milesCleaned" class="control-label">Miles Cleaned</label>
-    <div class="controls">
-       <input type="number" class="span2" name="milesCleaned" id="milesCleaned">
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="mostUnusualItem" class="control-label">Most Unusual Item</label>
-    <div class="controls">
-      <input type="text" class="span4" name="mostUnusualItem" id="mostUnusualItem">
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="mostCommonItem" class="control-label">Most Common Item</label>
-    <div class="controls">
-      <input type="text" class="span4" name="mostCommonItem" id="mostCommonItem">
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="largestItem" class="control-label">Largest Item</label>
-    <div class="controls">
-      <input type="text" class="span4" name="largestItem" id="largestItem">
-    </div>
-  </div>
-
-<div class="control-group center span4">
-    <label for="activeMilitary" class="control-label">Active Military</label>
-    <div class="controls">
-       <input type="number" class="span2" name="activeMilitary" id="activeMilitary">
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="boats" class="control-label">Boats</label>
-    <div class="controls">
-       <input type="number" class="span2" name="boats" id="boats">
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="trashPickup" class="control-label">Trash Pickup</label>
-    <div class="controls">
-      <select name="trashPickup" class="span2" id="trashPickup">
-        <option value="false" selected>no</option>
-        <option value="true">yes</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="control-group center span4">
-    <label for="picknic" class="control-label">Attending Picknic</label>
-    <div class="controls">
-      <select name="picknic", class="span2" id="picknic">
-        <option value="false" selected>no</option>
-        <option value="true">yes</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="center span4">
-      <a href="#" class="btn cancel">Cancel</a> &nbsp; &nbsp;
-      <a href="#" class="btn btn-primary save">Submit Report</a>
-  </div></br>
-  <footer>
-stuff in footer (c) <i><strong>awesome sauce</strong></i>
-  </footer>
-
-    </div>
   </div>
 </template>
 
+<template name="createDialog">
+  <form class="form-horizontal">
+   <div >
+    <fieldset>
+      <div class="control-group">
+        <label for="zoneCaptain" class="control-label">Zone Captain</label>
+        <div class="controls">
+          <input type="text" placeholder="Zone Captain's Name" name="zoneCaptain" id="zoneCaptain">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="partner" class="control-label">City/County</label>
+        <div class="controls">
+          <select name="partner" id="partner">
+            {{# each partners}}
+            {{> partner}}
+            {{/each}}
+          </select>
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="zone" class="control-label">Cleanup Zone</label>
+        <div class="controls">
+          <input type="text" class="span4" name="zone" id="zone" placeholder="Cleanup Zone">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="volunteers" class="control-label">Volunteers</label>
+        <div class="controls">
+         <input type="number" class="span2" name="volunteers" id="volunteers">
+       </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="poundsCollected" class="control-label">Pounds Collected</label>
+        <div class="controls">
+          <input type="number" class="span2" name="poundsCollected" id="poundsCollected">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="milesCleaned" class="control-label">Miles Cleaned</label>
+        <div class="controls">
+          <input type="number" class="span2" name="milesCleaned" id="milesCleaned">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="mostUnusualItem" class="control-label">Most Unusual Item</label>
+        <div class="controls">
+          <input type="text" class="span4" name="mostUnusualItem" id="mostUnusualItem" placeholder="Anything Odd?">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="mostCommonItem" class="control-label">Most Common Item</label>
+          <div class="controls">
+            <input type="text" class="span4" name="mostCommonItem" id="mostCommonItem" placeholder="Anything Common?">
+          </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="largestItem" class="control-label">Largest Item</label>
+        <div class="controls">
+          <input type="text" class="span4" name="largestItem" id="largestItem" placeholder="Anything Big?">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="activeMilitary" class="control-label">Active Military</label>
+        <div class="controls">
+         <input type="number" class="span2" name="activeMilitary" id="activeMilitary">
+       </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="boats" class="control-label">Boats</label>
+        <div class="controls">
+         <input type="number" class="span2" name="boats" id="boats">
+       </div>
+      </div>
+
+      <div class="control-group ">
+        <div class="controls">
+          <label for="trashPickup" class="checkbox">
+            <input type="checkbox" name="trashPickup" id="trashPickup"> 
+            Trash Pickup
+          </label>
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <div class="controls">
+          <label for="picknic" class="checkbox">
+            <input type="checkbox" name="picknic" id="picknic"> 
+            Attending Picknic
+          </label>
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <div class="controls">
+          <button type="submit" class="btn btn-primary save">Submit Report</button>        &nbsp; &nbsp;
+          <button type="button" class="btn cancel">Cancel</button>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  </form>
+  <br/>
+</template>
+
 <template name="partner">
-    <option>
-      {{name}}
-    </option>
-  </template>
+  <option>
+    {{name}}
+  </option>
+</template>
 
 <template name="zoneReport">
   {{zoneCaptain}} / {{partner}} / {{zone}}
