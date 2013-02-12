@@ -13,3 +13,8 @@
   text-align: center;
 }
 
+.center-form {
+  margin: auto; 
+  width: 500px
+}
+

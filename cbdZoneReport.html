@@ -1,6 +1,7 @@
 <head>
   <title>CBF Clean the Bay Day 2013</title>
   <link rel='stylesheet' type='text/css' href='http://bootswatch.com/cerulean/bootstrap.css' />
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-responsive.min.css" rel="stylesheet">
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
@@ -8,7 +9,7 @@
 <body>
   {{> navbar}}
   <div class="container">
-    {{> hello}}
+    {{> page}}
   </div>
 </body>
 
@@ -16,28 +17,50 @@
   <div class="navbar">
     <div class="navbar-inner">
       <ul class="nav">
-        <li class="active"><a href="#">Dashboard</a></li>
-        <li><a href="#" class="btn-reporting">Reporting</a></li>
+        {{#if navReportActive}}
+          <li>
+        {{else}}
+          <li class="active">
+        {{/if}}
+            <a href="#" class="btn-dashboard">Dashboard</a></li>
+        {{#if navReportActive}}
+          <li class="active">
+        {{else}}
+          <li>
+        {{/if}}
+            <a href="#" class="btn-reporting">Reporting</a></li>
       </ul>
     </div>
   </div>
 </template>
 
+<template name="page">
+  {{#if showReportMain}}
+    {{> reportMain}}
+  {{else}}
+    {{> hello}}
+  {{/if}}
+</template>
+
 <template name="hello">
+  {{#if showCreateDialog}}
+    {{> createDialog}}
+  {{else}}
+    {{> heroBanner}}
+    {{> zoneButton}}
+  {{/if}}
+</template>
+
+<template name="heroBanner">
   <div class="hero-unit center-text">
     <h1>Clean the Bay Day 2013<br/>Zone Reporting</h1>
     <h3>Fill out this awesome form to tell of your good deeds.</h3>
   </div>
-  {{#if showCreateDialog}}
-  {{> createDialog}}
-  {{else}}
-  {{> zoneButton}}
-  {{/if}}
 </template>
 
 <template name="reportMain">
   <div class="row">
-    <select name="partner" id="partner">
+    <select name="partner" id="partner" class="select-partner span4">
       {{# each partners}}
       {{> partner}}
       {{/each}}
@@ -52,8 +75,9 @@
 </template>
 
 <template name="createDialog">
-  <form class="form-horizontal">
-   <div >
+  <h2 class="center-text">Submit Your Zone Report</h2>
+  <form class="form-horizontal center-form">
+   <div>
     <fieldset>
       <div class="control-group">
         <label for="zoneCaptain" class="control-label">Zone Captain</label>
@@ -156,7 +180,7 @@
 
       <div class="control-group ">
         <div class="controls">
-          <button type="submit" class="btn btn-primary save">Submit Report</button>        &nbsp; &nbsp;
+          <button type="button" class="btn btn-primary save">Submit Report</button>        &nbsp; &nbsp;
           <button type="button" class="btn cancel">Cancel</button>
         </div>
       </div>

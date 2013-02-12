@@ -6,35 +6,36 @@ if (Meteor.isClient) {
 ///////////////////////////////////////////////////////////////////////////////
 // Create Report dialog
 
-  var openCreateDialog = function () {
+var openCreateDialog = function () {
   Session.set("showCreateDialog", true);
-  Session.set("showReportButton", false);
 };
 
-  var closeCreateForm = function () {
-    Session.set("showCreateDialog", false);
-    Session.set("showReportButton", true);
-  };
+var closeCreateForm = function () {
+  Session.set("showCreateDialog", false);
+};
 
-var reportsMainOpen = function () {
-    Session.set("showCreateDialog", false);
-    Session.set("showReportButton", false);
-    Session.set("showHelloMain", false);
+var reportMainOpen = function () {
+  Session.set("showCreateDialog", false);
+  Session.set("showReportMain", true);
+  Session.set("navReportActive", true);
 }
 
-Template.hello.showHelloMain = function () {
-  return Session.get("hello");
+var reportMainClosed = function () {
+  Session.set("showReportMain", false);
+  Session.set("navReportActive", false);
 }
 
 Template.hello.showCreateDialog = function () {
   return Session.get("showCreateDialog");
 };
 
-Template.hello.showReportButton = function () {
-  return Session.get("showReportButton");
+Template.page.showReportMain = function () {
+  return Session.get("showReportMain");
 }
 
-
+Template.navbar.navReportActive = function () {
+  return Session.get("navReportActive");
+}
 
 Template.createDialog.partners = function () {
   return Partners.find({}, {sort: {name: 1}});
@@ -44,22 +45,27 @@ Template.reportMain.partners = function () {
   return Partners.find({}, {sort: {name: 1}});
 };  
 
-
-
-  Template.createDialog.closeCreateForm = function () {
-    return Session.get("closeCreateForm");
-  };
-
 Template.hello.zoneReports = function () {
     return ZoneReports.find({}, {sort: {zoneCaptain: 1}});
-  };
+};
 
 Template.navbar.events({
   'click .btn-reporting' : function () {
-    reportsMainOpen();
+    reportMainOpen();
     console.log("clicked reports button");
+  },
+
+  'click .btn-dashboard' : function () {
+    reportMainClosed();
+    console.log("clicked dashboard button");
   }
-})
+});
+
+Template.reportMain.events({
+  'change .select-partner' : function () {
+    console.log("selected new partner");
+  }
+});
 
 Template.hello.events({
   'click .btn-large' : function () {
