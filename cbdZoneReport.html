@@ -1,6 +1,6 @@
 <head>
   <title>CBF Clean the Bay Day 2013</title>
-  <link rel='stylesheet' type='text/css' href='http://bootswatch.com/cerulean/bootstrap.css' />
+  <link rel='stylesheet' type='text/css' href='/bootstrap-cerulean.css' />
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-responsive.min.css" rel="stylesheet">
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
@@ -60,11 +60,31 @@
 
 <template name="reportMain">
   <div class="row">
+    <div class="span4">
     <select name="partner" id="partner" class="select-partner span4">
       {{# each partners}}
         {{> partner}}
       {{/each}}
     </select>
+  </div>
+  <div class="span5">
+    <ul class="nav nav-pills">
+      {{#if moreDetail}}
+          <li>
+        {{else}}
+          <li class="active">
+        {{/if}}
+        <a href="#" class="btn-less">Less Detail</a>
+      </li>
+      {{#if moreDetail}}
+          <li class="active">
+        {{else}}
+          <li>
+        {{/if}}
+        <a href="#" class="btn-more">More Detail</a></li>
+      <li><a href="#" class="btn-download">Download All to .CSV (no worky)</a></li>
+    </ul>
+  </div>
   </div>
   <div class="row">
     {{> reportDetail}}
@@ -79,7 +99,17 @@
         <th>Partner</th>
         <th>Zone</th>
         <th>Volunteers</th>
+        <th>Pounds Collected</th>
         <th>Miles Cleaned</th>
+        {{# if moreDetail}}
+          <th>Most Unusual</th>
+          <th>Most Common</th>
+          <th>Largest Item</th>
+          <th>Active Military</th>
+          <th>Boats</th>
+          <th>Trash</th>
+          <th>Picknic</th>
+        {{/if}}
       </tr>
     </thead>
     <tbody>
@@ -89,7 +119,17 @@
       <td>{{partner}}</td>
       <td>{{zone}}</td>
       <td>{{volunteers}}</td>
+      <td>{{poundsCollected}}</td>
       <td>{{milesCleaned}}</td>
+      {{# if moreDetail}}
+        <td>{{mostUnusualItem}}</td>
+        <td>{{mostCommonItem}}</td>
+        <td>{{largestItem}}</td>
+        <td>{{activeMilitary}}</td>
+        <td>{{boats}}</td>
+        <td>{{trashPickup}}</td>
+        <td>{{picknic}}</td>
+      {{/if}}
   </tr>
   {{/each}}
 </tbody>
@@ -191,7 +231,7 @@
       <div class="control-group ">
         <div class="controls">
           <label for="trashPickup" class="checkbox">
-            <input type="checkbox" name="trashPickup" id="trashPickup"> 
+            <input type="checkbox" name="trashPickup" id="trashPickup" value="true"> 
             Trash Pickup
           </label>
         </div>
@@ -200,7 +240,7 @@
       <div class="control-group ">
         <div class="controls">
           <label for="picknic" class="checkbox">
-            <input type="checkbox" name="picknic" id="picknic"> 
+            <input type="checkbox" name="picknic" id="picknic" value="true"> 
             Attending Picknic
           </label>
         </div>
@@ -224,7 +264,4 @@
   </option>
 </template>
 
-<template name="zoneReport">
-  {{zoneCaptain}} / {{partner}} / {{zone}}
-</template>
 

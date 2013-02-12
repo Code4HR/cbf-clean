@@ -23,6 +23,7 @@ var reportMainOpen = function () {
 var reportMainClosed = function () {
   Session.set("showReportMain", false);
   Session.set("navReportActive", false);
+  Session.set("showCreateDialog", false);
 }
 
 Template.hello.showCreateDialog = function () {
@@ -45,12 +46,16 @@ Template.reportMain.partners = function () {
   return Partners.find({}, {sort: {name: 1}});
 };  
 
-Template.hello.zoneReports = function () {
-    return ZoneReports.find({}, {sort: {zoneCaptain: 1}});
-};
-
 Template.reportDetail.reports = function () {
   return ZoneReports.find({}, {sort: {partner: 1}});
+}
+
+Template.reportDetail.moreDetail = function () {
+  return Session.get("moreDetail");
+}
+
+Template.reportMain.moreDetail = function () {
+  return Session.get("moreDetail");
 }
 
 Template.navbar.events({
@@ -68,6 +73,14 @@ Template.navbar.events({
 Template.reportMain.events({
   'change .select-partner' : function () {
     console.log("selected new partner");
+  },
+
+  'click .btn-more' : function () {
+    Session.set("moreDetail", true);
+  },
+
+  'click .btn-less' : function () {
+    Session.set("moreDetail", false);
   }
 });
 
