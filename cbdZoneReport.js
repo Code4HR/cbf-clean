@@ -49,6 +49,10 @@ Template.hello.zoneReports = function () {
     return ZoneReports.find({}, {sort: {zoneCaptain: 1}});
 };
 
+Template.reportDetail.reports = function () {
+  return ZoneReports.find({}, {sort: {partner: 1}});
+}
+
 Template.navbar.events({
   'click .btn-reporting' : function () {
     reportMainOpen();

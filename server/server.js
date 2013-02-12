@@ -18,7 +18,7 @@ if (Meteor.isServer) {
       "Hampton Clean City Commission",
       "HRSD Employees Association",
       "James City County (J4C)",
-      "Mansassas City Bay Clean-Up",
+      "Manassas City Bay Clean-Up",
       "Mattaponi & Pamunkey Rivers Association ",
       "Navy - Craney Island (Navy Portion - Fuel Depot) ",
       "Navy - JEB Fort Story ",
@@ -55,7 +55,7 @@ if (Meteor.isServer) {
       "Vinings Marine Group",
       "Virginia Eastern Shore Land Trust",
       "York County Waterways Alliance",
-                      "--Choose Your City--"];
+                      "--Choose Your Partner Org--"];
       for (var i = 0; i < names.length; i++)
         Partners.insert({name: names[i]});
     // }
