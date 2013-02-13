@@ -1,15 +1,16 @@
 <head>
   <title>CBF Clean the Bay Day 2013</title>
-  <link rel='stylesheet' type='text/css' href='/bootstrap-cerulean.css' />
+  <link href="/bootstrap-cerulean.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/css/bootstrap-responsive.min.css" rel="stylesheet">
-  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link href="/app.css" rel="stylesheet">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 </head>
 
 <body>
   {{> navbar}}
   <div class="container">
     {{> page}}
+    {{> footer}}
   </div>
 </body>
 
@@ -42,226 +43,22 @@
   {{/if}}
 </template>
 
-<template name="hello">
-  {{#if showCreateDialog}}
-    {{> createDialog}}
-  {{else}}
-    {{> heroBanner}}
-    {{> zoneButton}}
-  {{/if}}
-</template>
-
-<template name="heroBanner">
-  <div class="hero-unit center-text">
-    <h1>Clean the Bay Day 2013<br/>Zone Reporting</h1>
-    <h3>Fill out this awesome form to tell of your good deeds.</h3>
-  </div>
-</template>
-
-<template name="reportMain">
-  <div class="row">
-    <div class="span4">
-    <select name="partner" id="partner" class="select-partner span4">
-      {{# each partners}}
-        {{> partner}}
-      {{/each}}
-    </select>
-  </div>
-  <div class="span5">
-    <ul class="nav nav-pills">
-      {{#if moreDetail}}
-          <li>
-        {{else}}
-          <li class="active">
-        {{/if}}
-        <a href="#" class="btn-less">Less Detail</a>
-      </li>
-      {{#if moreDetail}}
-          <li class="active">
-        {{else}}
-          <li>
-        {{/if}}
-        <a href="#" class="btn-more">More Detail</a></li>
-      <li><a href="#" class="btn-download">Download All to .CSV (no worky)</a></li>
-    </ul>
-  </div>
-  </div>
-  <div class="row">
-    {{> reportDetail}}
-  </div>
-</template>
-
-<template name="reportDetail">
-  <table class="table table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Zone Captain</th>
-        <th>Partner</th>
-        <th>Zone</th>
-        <th>Volunteers</th>
-        <th>Pounds Collected</th>
-        <th>Miles Cleaned</th>
-        {{# if moreDetail}}
-          <th>Most Unusual</th>
-          <th>Most Common</th>
-          <th>Largest Item</th>
-          <th>Active Military</th>
-          <th>Boats</th>
-          <th>Trash</th>
-          <th>Picknic</th>
-        {{/if}}
-      </tr>
-    </thead>
-    <tbody>
-  {{# each reports}}
-    <tr>
-      <td>{{zoneCaptain}}</td>
-      <td>{{partner}}</td>
-      <td>{{zone}}</td>
-      <td>{{volunteers}}</td>
-      <td>{{poundsCollected}}</td>
-      <td>{{milesCleaned}}</td>
-      {{# if moreDetail}}
-        <td>{{mostUnusualItem}}</td>
-        <td>{{mostCommonItem}}</td>
-        <td>{{largestItem}}</td>
-        <td>{{activeMilitary}}</td>
-        <td>{{boats}}</td>
-        <td>{{trashPickup}}</td>
-        <td>{{picknic}}</td>
-      {{/if}}
-  </tr>
-  {{/each}}
-</tbody>
-</table>
-</template>
-
-<template name="zoneButton">
-  <div class="row center-text">
-    <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
-  </div>
-</template>
-
-<template name="createDialog">
-  <h2 class="center-text">Submit Your Zone Report</h2>
-  <form class="form-horizontal center-form">
-   <div>
-    <fieldset>
-      <div class="control-group">
-        <label for="zoneCaptain" class="control-label">Zone Captain</label>
-        <div class="controls">
-          <input type="text" placeholder="Zone Captain's Name" name="zoneCaptain" id="zoneCaptain">
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="partner" class="control-label">City/County</label>
-        <div class="controls">
-          <select name="partner" id="partner" class="span4">
-            {{# each partners}}
-            {{> partner}}
-            {{/each}}
-          </select>
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="zone" class="control-label">Cleanup Zone</label>
-        <div class="controls">
-          <input type="text" class="span4" name="zone" id="zone" placeholder="Cleanup Zone">
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="volunteers" class="control-label">Volunteers</label>
-        <div class="controls">
-         <input type="number" class="span2" name="volunteers" id="volunteers">
-       </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="poundsCollected" class="control-label">Pounds Collected</label>
-        <div class="controls">
-          <input type="number" class="span2" name="poundsCollected" id="poundsCollected">
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="milesCleaned" class="control-label">Miles Cleaned</label>
-        <div class="controls">
-          <input type="number" class="span2" name="milesCleaned" id="milesCleaned">
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="mostUnusualItem" class="control-label">Most Unusual Item</label>
-        <div class="controls">
-          <input type="text" class="span4" name="mostUnusualItem" id="mostUnusualItem" placeholder="Anything Odd?">
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="mostCommonItem" class="control-label">Most Common Item</label>
-          <div class="controls">
-            <input type="text" class="span4" name="mostCommonItem" id="mostCommonItem" placeholder="Anything Common?">
-          </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="largestItem" class="control-label">Largest Item</label>
-        <div class="controls">
-          <input type="text" class="span4" name="largestItem" id="largestItem" placeholder="Anything Big?">
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="activeMilitary" class="control-label">Active Military</label>
-        <div class="controls">
-         <input type="number" class="span2" name="activeMilitary" id="activeMilitary">
-       </div>
-      </div>
-
-      <div class="control-group ">
-        <label for="boats" class="control-label">Boats</label>
-        <div class="controls">
-         <input type="number" class="span2" name="boats" id="boats">
-       </div>
-      </div>
-
-      <div class="control-group ">
-        <div class="controls">
-          <label for="trashPickup" class="checkbox">
-            <input type="checkbox" name="trashPickup" id="trashPickup" value="true"> 
-            Trash Pickup
-          </label>
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <div class="controls">
-          <label for="picknic" class="checkbox">
-            <input type="checkbox" name="picknic" id="picknic" value="true"> 
-            Attending Picknic
-          </label>
-        </div>
-      </div>
-
-      <div class="control-group ">
-        <div class="controls">
-          <button type="button" class="btn btn-primary save">Submit Report</button>        &nbsp; &nbsp;
-          <button type="button" class="btn cancel">Cancel</button>
-        </div>
-      </div>
-    </fieldset>
-  </div>
-  </form>
-  <br/>
-</template>
-
 <template name="partner">
   <option>
     {{name}}
   </option>
 </template>
 
+<template name="footer">
+  <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
+  <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>        
 
+  <br /><br /><br /><hr>
+  <footer>
+    <p class="pull-left">
+      Built for <a href="http://cbf.org">
+      Chesapeake Bay Foundation</a> 
+      by <a href="http://codeforvirginiabeach.org">
+      Volunteers with Code for Amercia</a>.</p>
+  </footer>
+</template>

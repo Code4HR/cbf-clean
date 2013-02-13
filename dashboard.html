@@ -1,0 +1,137 @@
+<template name="hello">
+  {{#if showCreateDialog}}
+    {{> createDialog}}
+  {{else}}
+    {{> heroBanner}}
+    {{> zoneButton}}
+  {{/if}}
+</template>
+
+<template name="heroBanner">
+  <div class="hero-unit center-text">
+    <h1>Clean the Bay Day 2013<br/>Zone Reporting</h1>
+    <h3>Fill out this awesome form to tell of your good deeds.</h3>
+  </div>
+</template>
+
+<template name="zoneButton">
+  <div class="row center-text">
+    <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
+  </div>
+</template>
+
+<template name="createDialog">
+  <h2 class="center-text">Submit Your Zone Report</h2>
+  <form class="form-horizontal center-form">
+   <div>
+    <fieldset>
+      <div class="control-group">
+        <label for="zoneCaptain" class="control-label">Zone Captain</label>
+        <div class="controls">
+          <input type="text" placeholder="Zone Captain's Name" name="zoneCaptain" id="zoneCaptain">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="partner" class="control-label">City/County</label>
+        <div class="controls">
+          <select name="partner" id="partner" class="span4">
+            {{# each partners}}
+            {{> partner}}
+            {{/each}}
+          </select>
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="zone" class="control-label">Cleanup Zone</label>
+        <div class="controls">
+          <input type="text" class="span4" name="zone" id="zone" placeholder="Cleanup Zone">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="volunteers" class="control-label">Volunteers</label>
+        <div class="controls">
+         <input type="number" class="span2" name="volunteers" id="volunteers">
+       </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="poundsCollected" class="control-label">Pounds Collected</label>
+        <div class="controls">
+          <input type="number" class="span2" name="poundsCollected" id="poundsCollected">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="milesCleaned" class="control-label">Miles Cleaned</label>
+        <div class="controls">
+          <input type="number" class="span2" name="milesCleaned" id="milesCleaned">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="mostUnusualItem" class="control-label">Most Unusual Item</label>
+        <div class="controls">
+          <input type="text" class="span4" name="mostUnusualItem" id="mostUnusualItem" placeholder="Anything Odd?">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="mostCommonItem" class="control-label">Most Common Item</label>
+          <div class="controls">
+            <input type="text" class="span4" name="mostCommonItem" id="mostCommonItem" placeholder="Anything Common?">
+          </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="largestItem" class="control-label">Largest Item</label>
+        <div class="controls">
+          <input type="text" class="span4" name="largestItem" id="largestItem" placeholder="Anything Big?">
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="activeMilitary" class="control-label">Active Military</label>
+        <div class="controls">
+         <input type="number" class="span2" name="activeMilitary" id="activeMilitary">
+       </div>
+      </div>
+
+      <div class="control-group ">
+        <label for="boats" class="control-label">Boats</label>
+        <div class="controls">
+         <input type="number" class="span2" name="boats" id="boats">
+       </div>
+      </div>
+
+      <div class="control-group ">
+        <div class="controls">
+          <label for="trashPickup" class="checkbox">
+            <input type="checkbox" name="trashPickup" id="trashPickup" value="true"> 
+            Trash Pickup
+          </label>
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <div class="controls">
+          <label for="picnic" class="checkbox">
+            <input type="checkbox" name="picnic" id="picnic" value="true"> 
+            Attending Picnic
+          </label>
+        </div>
+      </div>
+
+      <div class="control-group ">
+        <div class="controls">
+          <button type="button" class="btn btn-primary save">Submit Report</button>        &nbsp; &nbsp;
+          <button type="button" class="btn cancel">Cancel</button>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+  </form>
+  <br/>
+</template>

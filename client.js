@@ -1,6 +1,15 @@
 Partners = new Meteor.Collection("partners");
 ZoneReports = new Meteor.Collection("zoneReports");
 
+ZoneReports.allow({
+  insert : function () { return true; }
+});
+
+ZoneReports.deny({
+  update : function () { return true; },
+  remove : function () { return true; }
+});
+
 if (Meteor.isClient) {
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -109,7 +118,8 @@ Template.createDialog.events({
                 activeMilitary: document.getElementById("activeMilitary").value,
                 boats: document.getElementById("boats").value,
                 trashPickup: document.getElementById("trashPickup").value,
-                picknic: document.getElementById("picknic").value
+                picnic: document.getElementById("picnic").value,
+                createdAt: new Date()
       });
     }
     closeCreateForm();
