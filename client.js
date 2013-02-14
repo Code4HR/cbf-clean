@@ -100,26 +100,31 @@ Template.hello.events({
 });
 
 Template.createDialog.events({
+
   'click .save' : function () {
     // template data, if any, is available in 'this'
-    if (typeof console !== 'undefined') {  //why do I do this first?
+    if (document.getElementById("trashPickup"))
+
+    if (typeof console !== 'undefined') {  // why do I do this first? TODO: check usage
       console.log("You pressed the button");
-      console.log(document.getElementById("zoneCaptain").value);
+      console.log("captain : " + document.getElementById("zoneCaptain").value);
+      console.log("trash pickup : " + document.getElementById("trashPickup").checked);
+      console.log("picnic : " + document.getElementById("picnic").checked);
       ZoneReports.insert({
-                zoneCaptain: document.getElementById("zoneCaptain").value,
-                partner: document.getElementById("partner").value,
-                zone: document.getElementById("zone").value,
-                volunteers: document.getElementById("volunteers").value,
-                poundsCollected: document.getElementById("poundsCollected").value,
-                milesCleaned: document.getElementById("milesCleaned").value,
-                mostUnusualItem: document.getElementById("mostUnusualItem").value,
-                mostCommonItem: document.getElementById("mostCommonItem").value,
-                largestItem: document.getElementById("largestItem").value,
-                activeMilitary: document.getElementById("activeMilitary").value,
-                boats: document.getElementById("boats").value,
-                trashPickup: document.getElementById("trashPickup").value,
-                picnic: document.getElementById("picnic").value,
-                createdAt: new Date()
+        zoneCaptain: document.getElementById("zoneCaptain").value,
+        partner: document.getElementById("partner").value,
+        zone: document.getElementById("zone").value,
+        volunteers: document.getElementById("volunteers").value,
+        poundsCollected: document.getElementById("poundsCollected").value,
+        milesCleaned: document.getElementById("milesCleaned").value,
+        mostUnusualItem: document.getElementById("mostUnusualItem").value,
+        mostCommonItem: document.getElementById("mostCommonItem").value,
+        largestItem: document.getElementById("largestItem").value,
+        activeMilitary: document.getElementById("activeMilitary").value,
+        boats: document.getElementById("boats").value,
+        trashPickup: document.getElementById("trashPickup").checked,
+        picnic: document.getElementById("picnic").checked,
+        createdAt: new Date()
       });
     }
     closeCreateForm();

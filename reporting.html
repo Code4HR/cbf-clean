@@ -41,7 +41,7 @@
         <th>Volunteers</th>
         <th>Pounds Collected</th>
         <th>Miles Cleaned</th>
-        {{# if moreDetail}}
+        {{#if moreDetail}}
           <th>Most Unusual</th>
           <th>Most Common</th>
           <th>Largest Item</th>
@@ -49,12 +49,11 @@
           <th>Boats</th>
           <th>Trash</th>
           <th>Picnic</th>
-          <th>Timestamp</th>
         {{/if}}
       </tr>
     </thead>
     <tbody>
-      {{# each reports}}
+      {{#each reports}}
       <tr>
         <td>{{zoneCaptain}}</td>
         <td>{{partner}}</td>
@@ -62,15 +61,22 @@
         <td>{{volunteers}}</td>
         <td>{{poundsCollected}}</td>
         <td>{{milesCleaned}}</td>
-        {{# if moreDetail}}
+        {{#if moreDetail}}
           <td>{{mostUnusualItem}}</td>
           <td>{{mostCommonItem}}</td>
           <td>{{largestItem}}</td>
           <td>{{activeMilitary}}</td>
           <td>{{boats}}</td>
-          <td>{{trashPickup}}</td>
-          <td>{{picnic}}</td>
-          <td>{{timestamp}}</td>
+          <td>
+            {{#if trashPickup}}
+              Yes
+            {{/if}}
+          </td>
+          <td>
+            {{#if picnic}}
+              Yes
+            {{/if}}
+          </td>
         {{/if}}
       </tr>
        {{/each}}
