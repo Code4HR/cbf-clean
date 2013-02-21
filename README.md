@@ -39,6 +39,6 @@ Options for Deploying a Meteor App
 
 We're Here to Help
 =====================
-* Bret Fisher - bret@codeforamerica.org - (@BretFisher)[http://twitter.com/BretFisher]
-* find a few of us on [IRC (freenode)](webchat.freenode.net/?channels=codeforamerica&uio=d4) in #codeforamerica (BretFisher, kmcurry, others I can't remember handles for)
+* Bret Fisher - bret@codeforamerica.org - [@BretFisher](http://twitter.com/BretFisher)
+* find a few of us on [IRC (freenode)](webchat.freenode.net/?channels=codeforamerica&uio=d4) in #codeforamerica (BretFisher, kmcurry, and others I can't remember handles for)
 * Search or post to our [Google Group](https://groups.google.com/a/codeforamerica.org/forum/#!forum/hrva-brigade) for the local "Brigade" 
