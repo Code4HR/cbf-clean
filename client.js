@@ -27,13 +27,13 @@ var reportMainOpen = function () {
   Session.set("showCreateDialog", false);
   Session.set("showReportMain", true);
   Session.set("navReportActive", true);
-}
+};
 
 var reportMainClosed = function () {
   Session.set("showReportMain", false);
   Session.set("navReportActive", false);
   Session.set("showCreateDialog", false);
-}
+};
 
 Template.hello.showCreateDialog = function () {
   return Session.get("showCreateDialog");
@@ -41,11 +41,11 @@ Template.hello.showCreateDialog = function () {
 
 Template.page.showReportMain = function () {
   return Session.get("showReportMain");
-}
+};
 
 Template.navbar.navReportActive = function () {
   return Session.get("navReportActive");
-}
+};
 
 Template.createDialog.partners = function () {
   return Partners.find({}, {sort: {name: 1}});
@@ -57,15 +57,15 @@ Template.reportMain.partners = function () {
 
 Template.reportDetail.reports = function () {
   return ZoneReports.find({}, {sort: {partner: 1}});
-}
+};
 
 Template.reportDetail.moreDetail = function () {
   return Session.get("moreDetail");
-}
+};
 
 Template.reportMain.moreDetail = function () {
   return Session.get("moreDetail");
-}
+};
 
 Template.navbar.events({
   'click .btn-reporting' : function () {
@@ -90,6 +90,40 @@ Template.reportMain.events({
 
   'click .btn-less' : function () {
     Session.set("moreDetail", false);
+  },
+
+  'click .btn-download' : function () {
+    // put all data in a variable and download. for now this is ok for client
+    // but will likely suck with a thousand records, so it'll need to be done 
+    // server-side and sent down
+
+// get keys
+var data = ZoneReports.find({}, {sort: {partner: 1}}).fetch();
+// var keys = _.keys(data[0]);
+ 
+// convert to csv string
+// var csv = keys.join(",");
+// _(data).each(function(row) {
+//   csv += "\n";
+//   csv += _(keys).map(function(k) {
+//     return row[k];
+//   }).join(",");
+// });
+
+openDataURL(createDataURL(data));
+
+// trick browser into downloading file
+// var uriContent = "data:application/octet-stream;base64," + encodeURIComponent(csv);
+// var myWindow = window.open(uriContent, "Reports Download");
+// myWindow.focus();
+
+    // // object to array
+    // var reports = ZoneReports.find({}, {sort: {partner: 1}}).fetch();
+    // var csv;
+
+    // //array to json
+    // csv = JSON.stringify(reports);
+    // console.log(csv);
   }
 });
 
