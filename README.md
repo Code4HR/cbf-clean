@@ -24,7 +24,7 @@ Setup for Local Development (Mac or GNU/Linux)
 * browse to localhost:3000 by default
 * any editing you do will auto refresh in browser
 * debug using the JavaScript console in your browser
-* go dive into [Meteor documentationn](http://docs.meteor.com/)
+* go dive into [Meteor documentation](http://docs.meteor.com/)
 
 Setup for Local Development (Windows)
 ===========================
