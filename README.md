@@ -5,14 +5,14 @@ testing/demo site: http://cbf-clean.meteor.com
 
 [Clean the Bay Day](http://www.cbf.org/clean) (Chesapeake Bay) reporting app and live stats single-page-app.
 
-This web app is written in [Node.js]() using the [Meteor.js](http://meteor.com) framework for the [Chesapeake Bay Foundation](http://www.cbf.org/) (CBD2013)
+This web app is written in [Node.js](http://nodejs.org) using the [Meteor.js](http://meteor.com) framework for the [Chesapeake Bay Foundation](http://www.cbf.org/) (CBD2013)
 
 Goals of cbf-clean
 ==================
 * Provide a simple, intuitive form for "zone reporting" on Clean the Bay Day from "zone captains" in cities and counties around the East Coast of Virginia. Hundreds of people need to report in where and what they cleaned up.
 * Easily provide a open data dump of those reports, for orgs and partners that need it.
 * (optionally) provide live stats, and useful data or info-graphics to visitors, based on current data coming in, and previous year data.
-* (optionally) inspire visitors to learn more about [CtBF](http://www.cbf.org) and clean the bay *everyday*.
+* (optionally) inspire visitors to learn more about [CBF](http://www.cbf.org) and clean the bay *everyday*.
 
 [Meteor](http://meteor.com) is an extensive web framework on top of Node.js, for writing live, modern, web apps quickly; and is quite different from what you might be used to in other rapid development frameworks like MVC-style and scaffold-based systems. Before trying to get this to work, you may want to watch screencasts at http://meteor.com/screencast
 
@@ -39,6 +39,6 @@ Options for Deploying a Meteor App
 
 We're Here to Help
 =====================
-* Bret Fisher - bret@codeforamerica.org - @BretFisher
-* find a few of us on (IRC (freenode))[webchat.freenode.net/?channels=codeforamerica&uio=d4] in #codeforamerica (BretFisher, kmcurry, others I can't remember handles for)
-* Search or post to our (Google Group)[https://groups.google.com/a/codeforamerica.org/forum/#!forum/hrva-brigade] for the local "Brigade" 
+* Bret Fisher - bret@codeforamerica.org - (@BretFisher)[http://twitter.com/BretFisher]
+* find a few of us on [IRC (freenode)](webchat.freenode.net/?channels=codeforamerica&uio=d4) in #codeforamerica (BretFisher, kmcurry, others I can't remember handles for)
+* Search or post to our [Google Group](https://groups.google.com/a/codeforamerica.org/forum/#!forum/hrva-brigade) for the local "Brigade" 
