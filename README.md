@@ -37,4 +37,8 @@ Options for Deplying a Meteor App
 * Heroku supports meteor apps, with a bit more setup.
 * Roll your own. Meh.
 
-Bret Fisher - bret@codeforamerica.org - @BretFisher
+We're Here to Help
+=====================
+* Bret Fisher - bret@codeforamerica.org - @BretFisher
+* find a few of us on IRC (freenode) in #codeforamerica (BretFisher, kmcurry, others I can't remember handles for)
+* Search or post to our (Google Group)[https://groups.google.com/a/codeforamerica.org/forum/#!forum/hrva-brigade] for the local "Brigade" 
