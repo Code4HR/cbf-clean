@@ -52,7 +52,10 @@
 <template name="footer">
   <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script> 
   <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.0/js/bootstrap.min.js"></script>        
-
+  <script src="/js/jqBootstrapValidation.js"></script>
+  <script>
+    $(function () { $("volunteers,poundsCollected,milesCleaned").not("[type=submit]").jqBootstrapValidation(); } );
+  </script>
   <br /><br /><br /><hr>
   <footer>
     <p class="pull-left">
