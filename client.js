@@ -99,31 +99,6 @@ Template.reportMain.events({
 
 // get keys
 var data = ZoneReports.find({}, {sort: {partner: 1}}).fetch();
-// var keys = _.keys(data[0]);
- 
-// convert to csv string
-// var csv = keys.join(",");
-// _(data).each(function(row) {
-//   csv += "\n";
-//   csv += _(keys).map(function(k) {
-//     return row[k];
-//   }).join(",");
-// });
-
-openDataURL(createDataURL(data));
-
-// trick browser into downloading file
-// var uriContent = "data:application/octet-stream;base64," + encodeURIComponent(csv);
-// var myWindow = window.open(uriContent, "Reports Download");
-// myWindow.focus();
-
-    // // object to array
-    // var reports = ZoneReports.find({}, {sort: {partner: 1}}).fetch();
-    // var csv;
-
-    // //array to json
-    // csv = JSON.stringify(reports);
-    // console.log(csv);
   }
 });
 
