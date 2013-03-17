@@ -67,17 +67,34 @@ if (Meteor.isServer) {
       var fs = require('fs');
       var base = path.resolve('.');
       var isBundle = fs.existsSync(base + '/bundle');
-      var publicPath = base + (isBundle ? '/bundle/static' : '/public'); 
+      var publicPath = base + (isBundle ? '/bundle/static' : '/public');
       var modulePath = publicPath + '/node_modules';
       var csv = require(modulePath + '/csv');
 
       // start an observer on the ZoneReports Collection
-      // TODO: needs to add headers to output
+      // this takes the listed columns from the DB and puts in csv file on every
+      // startup or every write to the collection in DB
       var query = ZoneReports.find({}, {sort: {partner: 1}});
       var handle = query.observe({
         added: function () {
           var reports = ZoneReports.find({}, {}).fetch();
-          csv().from(reports).to(publicPath + "/export.csv");
+          csv().from(reports).to(publicPath + "/export.csv", {
+            columns: [
+              "zoneCaptain",
+              "partner",
+              "zone",
+              "volunteers",
+              "poundsCollected",
+              "milesCleaned",
+              "mostUnusualItem",
+              "mostCommonItem",
+              "largestItem",
+              "activeMilitary",
+              "boats",
+              "trashPickup",
+              "picnic"],
+            header: true
+          });
         }});
 
   });
