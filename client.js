@@ -53,7 +53,7 @@ Template.createDialog.partners = function () {
 
 Template.reportMain.partners = function () {
   return Partners.find({}, {sort: {name: 1}});
-};  
+};
 
 Template.reportDetail.reports = function () {
   return ZoneReports.find({}, {sort: {partner: 1}});
@@ -102,6 +102,10 @@ Template.hello.events({
 
 Template.createDialog.events({
 
+  'click .cancel' : function () {
+    closeCreateForm();
+  },
+
   'click .save' : function () {
     // template data, if any, is available in 'this'
     if (document.getElementById("trashPickup"))
@@ -128,6 +132,7 @@ Template.createDialog.events({
         createdAt: new Date()
       });
     }
+    //TODO: tell them thank you!!
     closeCreateForm();
 
     }
