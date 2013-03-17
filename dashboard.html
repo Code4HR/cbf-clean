@@ -36,6 +36,7 @@
         <label for="partner" class="control-label">Partner Org</label>
         <div class="controls">
           <select name="partner" id="partner" class="span4">
+            <option>--Choose Your Parnter Org--</option>
             {{# each partners}}
             {{> partner}}
             {{/each}}
@@ -109,7 +110,7 @@
       <div class="control-group ">
         <div class="controls">
           <label for="trashPickup" class="checkbox">
-            <input type="checkbox" name="trashPickup" id="trashPickup"> 
+            <input type="checkbox" name="trashPickup" id="trashPickup">
             Trash Pickup
           </label>
         </div>

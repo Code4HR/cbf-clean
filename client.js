@@ -12,6 +12,15 @@ ZoneReports.deny({
 
 if (Meteor.isClient) {
 
+// If no partner selected, select none. Remember selection.
+Meteor.startup(function () {
+  Meteor.autorun(function () {
+    if (! Session.get("partnerSelected")) {
+      Session.set("partnerSelected", "All");
+    }
+  });
+});
+
 ///////////////////////////////////////////////////////////////////////////////
 // Create Report dialog
 
@@ -56,7 +65,14 @@ Template.reportMain.partners = function () {
 };
 
 Template.reportDetail.reports = function () {
-  return ZoneReports.find({}, {sort: {partner: 1}});
+  // console.log(document.getElementById("partner").value);
+  var partnerSelected = Session.get("partnerSelected");
+  // console.log(partnerSelected);
+  if (partnerSelected === "All") {
+    return ZoneReports.find({}, {sort: {"createdAt": -1}});
+  } else {
+    return ZoneReports.find({"partner": partnerSelected}, {sort: {"createdAt": -1}});
+  }
 };
 
 Template.reportDetail.moreDetail = function () {
@@ -70,18 +86,19 @@ Template.reportMain.moreDetail = function () {
 Template.navbar.events({
   'click .btn-reporting' : function () {
     reportMainOpen();
-    console.log("clicked reports button");
+    // console.log("clicked reports button");
   },
 
   'click .btn-dashboard' : function () {
     reportMainClosed();
-    console.log("clicked dashboard button");
+    // console.log("clicked dashboard button");
   }
 });
 
 Template.reportMain.events({
   'change .select-partner' : function () {
-    console.log("selected new partner");
+    // console.log("selected new partner");
+    Session.set("partnerSelected", document.getElementById("partner").value);
   },
 
   'click .btn-more' : function () {
@@ -90,8 +107,7 @@ Template.reportMain.events({
 
   'click .btn-less' : function () {
     Session.set("moreDetail", false);
-  },
-
+  }
 });
 
 Template.hello.events({
@@ -134,7 +150,6 @@ Template.createDialog.events({
     }
     //TODO: tell them thank you!!
     closeCreateForm();
-
     }
   });
 }

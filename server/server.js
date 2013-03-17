@@ -56,8 +56,7 @@ if (Meteor.isServer) {
       "VA Dept. of Conservation and Recreation ",
       "Vinings Marine Group",
       "Virginia Eastern Shore Land Trust",
-      "York County Waterways Alliance",
-                      "--Choose Your Partner Org--"];
+      "York County Waterways Alliance"];
       for (var i = 0; i < names.length; i++)
         Partners.insert({name: names[i]});
 
