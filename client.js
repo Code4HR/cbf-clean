@@ -36,6 +36,7 @@ var reportMainOpen = function () {
   Session.set("showCreateDialog", false);
   Session.set("showReportMain", true);
   Session.set("navReportActive", true);
+  // totals();
 };
 
 var reportMainClosed = function () {
@@ -64,15 +65,49 @@ Template.reportMain.partners = function () {
   return Partners.find({}, {sort: {name: 1}});
 };
 
+var totals = function (reports) {
+  var totalVolunteers = 0;
+  var totalPounds = 0;
+  var totalMiles = 0;
+  reports.forEach(function (report) {
+    if (report.volunteers > 0) totalVolunteers += parseInt(report.volunteers, 0);
+    if (report.poundsCollected > 0) totalPounds += parseInt(report.poundsCollected, 0);
+    if (report.milesCleaned > 0) totalMiles += parseInt(report.milesCleaned, 0);
+  });
+  Session.set("totalReports", ZoneReports.find().count());
+  Session.set("totalVolunteers", totalVolunteers);
+  Session.set("totalPounds", totalPounds);
+  Session.set("totalMiles", totalMiles);
+
+};
+
+Template.reportMain.totalReports = function () {
+  return Session.get("totalReports");
+};
+
+Template.reportMain.totalVolunteers = function () {
+  return Session.get("totalVolunteers");
+};
+
+Template.reportMain.totalPounds = function () {
+  return Session.get("totalPounds");
+};
+
+Template.reportMain.totalMiles = function () {
+  return Session.get("totalMiles");
+};
+
 Template.reportDetail.reports = function () {
   // console.log(document.getElementById("partner").value);
   var partnerSelected = Session.get("partnerSelected");
   // console.log(partnerSelected);
   if (partnerSelected === "All") {
-    return ZoneReports.find({}, {sort: {"createdAt": -1}});
+    var reports = ZoneReports.find({}, {sort: {"createdAt": -1}});
   } else {
-    return ZoneReports.find({"partner": partnerSelected}, {sort: {"createdAt": -1}});
+    var reports = ZoneReports.find({"partner": partnerSelected}, {sort: {"createdAt": -1}});
   }
+  totals(reports);
+  return reports;
 };
 
 Template.reportDetail.moreDetail = function () {
