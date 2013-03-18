@@ -21,7 +21,7 @@ Goals of cbf-clean
 Setup for Local Development (Mac or GNU/Linux)
 ===========================
 * `curl https://install.meteor.com | sh`
-* clone this repo to your machine
+* fork+clone this repo to your machine
 * inside the repo folder, type meteor to launch local server
 * browse to localhost:3000 by default
 * any editing you do will auto refresh in browser
@@ -31,6 +31,12 @@ Setup for Local Development (Mac or GNU/Linux)
 Setup for Local Development (Windows)
 ===========================
 * Official Windows support for Meteor is still pending, but the community has one that works fine at http://win.meteor.com/.
+* Install it
+* fork+clone this repo to your machine
+* Open an Command Prompt or PowerShell Console
+* Navigate to the folder where you cloned cbf-clean
+* type meteor to launch local server
+* browse to localhost:3000
 
 Options for Deploying a Meteor App
 ===========================
