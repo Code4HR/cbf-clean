@@ -1,41 +1,48 @@
 <template name="reportMain">
   <div class="row">
     <div class="span4">
-    <select name="partner" id="partner" class="select-partner span4">
-      <option>All</option>
-      {{# each partners}}
-        {{> partner}}
-      {{/each}}
-    </select>
+      <select name="partner" id="partner" class="select-partner span4">
+        <option>All</option>
+        {{# each partners}}
+          {{> partner}}
+        {{/each}}
+      </select>
+    </div>
+    <div class="span8">
+      <ul class="nav nav-pills">
+        {{#if moreDetail}}
+            <li>
+          {{else}}
+            <li class="active">
+          {{/if}}
+          <a href="#" class="btn-less">Less Detail</a>
+        </li>
+        {{#if moreDetail}}
+            <li class="active">
+          {{else}}
+            <li>
+          {{/if}}
+          <a href="#" class="btn-more">More Detail</a></li>
+        <li><a href="export.csv">Download All to .CSV</a></li>
+      </ul>
+    </div>
   </div>
-  <div class="span5">
-    <ul class="nav nav-pills">
-      {{#if moreDetail}}
-          <li>
-        {{else}}
-          <li class="active">
-        {{/if}}
-        <a href="#" class="btn-less">Less Detail</a>
-      </li>
-      {{#if moreDetail}}
-          <li class="active">
-        {{else}}
-          <li>
-        {{/if}}
-        <a href="#" class="btn-more">More Detail</a></li>
-      <li><a href="export.csv">Download All to .CSV</a></li>
-    </ul>
+  <div class="row row-fluid well well-small">
+    <div class="span2"><h3 class="muted">Totals</h3></div>
+    <div class="span2"><h3 class="muted">Reports: {{totalReports}}</h3></div>
+    <div class="span2"><h3 class="muted">People: {{totalVolunteers}}</h3></div>
+    <div class="span2"><h3 class="muted">Pounds: {{totalPounds}}</h3></div>
+    <div class="span2"><h3 class="muted">Miles: {{totalMiles}}</h3></div>
   </div>
-  </div>
-  <div class="row well well-small">
-    <div class="span2">Total Reports: {{totalReports}}</div>
-    <div class="span2">Total Volunteers: {{totalVolunteers}}</div>
-    <div class="span2">Total Pounds: {{totalPounds}}</div>
-    <div class="span2">Total Miles: {{totalMiles}}</div>
-  </div>
-  <div class="row">
+  <div class="row row-fluid">
     {{> reportDetail}}
   </div>
+</template>
+
+<template name="partner">
+  <option {{selected}}>
+    {{name}}
+  </option>
 </template>
 
 <template name="reportDetail">

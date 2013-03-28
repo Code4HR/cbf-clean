@@ -16,7 +16,14 @@ Goals of cbf-clean
 * (optionally) provide live stats, and useful data or info-graphics to visitors, based on current data coming in, and previous year data.
 * (optionally) inspire visitors to learn more about [CBF](http://www.cbf.org) and clean the bay *everyday*.
 
-[Meteor](http://meteor.com) is an extensive web framework on top of Node.js, for writing live, modern, web apps quickly; and is quite different from what you might be used to in other rapid development frameworks like MVC-style and scaffold-based systems. Before trying to get this to work, you may want to watch screencasts at http://meteor.com/screencast
+[Meteor](http://meteor.com) is an extensive web framework on top of Node.js, for writing live, modern, web apps quickly; and is quite different from what you might be used to in other rapid development frameworks like MVC-style and scaffold-based systems. 
+
+Learn Meteor
+==========================
+* You don't have to know Node to get started with Meteor, but you do need to know JavaScript, CSS, HTML.
+* Watch screencasts at http://meteor.com/screencast, tech talks at http://www.youtube.com/user/MeteorVideos
+* Read a great [overview of Meteor development](http://andrewscala.com/meteor/), then go dive into [Meteor documentation](http://docs.meteor.com/).
+* An [unoffical FAQ](https://github.com/oortcloud/unofficial-meteor-faq) that helps with some edge cases.
 
 Setup for Local Development (Mac or GNU/Linux)
 ===========================
@@ -26,7 +33,6 @@ Setup for Local Development (Mac or GNU/Linux)
 * browse to localhost:3000 by default
 * any editing you do will auto refresh in browser
 * debug using the JavaScript console in your browser
-* Read a great [overview of Meteor development](http://andrewscala.com/meteor/), then go dive into [Meteor documentation](http://docs.meteor.com/)
 
 Setup for Local Development (Windows)
 ===========================

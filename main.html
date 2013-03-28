@@ -44,17 +44,18 @@
 </template>
 
 <template name="page">
+  {{#unless hideHello}}
+    {{> heroBanner}}
+  {{/unless}}
   {{#if showReportMain}}
     {{> reportMain}}
-  {{else}}
-    {{> hello}}
   {{/if}}
-</template>
-
-<template name="partner">
-  <option>
-    {{name}}
-  </option>
+  {{#if showZoneForm}}
+    {{> zoneForm}}
+  {{/if}}
+  {{#if showThankYou}}
+    {{> thankYouBanner}}
+  {{/if}}
 </template>
 
 <template name="footer">

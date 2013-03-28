@@ -1,26 +1,22 @@
-<template name="hello">
-  {{#if showCreateDialog}}
-    {{> createDialog}}
-  {{else}}
-    {{> heroBanner}}
-    {{> zoneButton}}
-  {{/if}}
-</template>
-
 <template name="heroBanner">
   <div class="hero-unit center-text">
     <h1>Clean the Bay Day 2013<br/>Zone Reporting</h1>
-    <h3>Fill out this awesome form to tell of your good deeds.</h3>
+    <h3>Fill out this awesome form to tell of your good deeds.
+      <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
+    </h3>
   </div>
 </template>
 
-<template name="zoneButton">
-  <div class="row center-text">
-    <a href="#" class="btn btn-primary btn-large">Click to Create Zone Report</a>
+<template name="thankYouBanner">
+  <div class="hero-unit center-text">
+    <h1 style="color: green">Thank You</h1>
+    <h3>You just made the Bay better!<br/>
+      <a href="#" class="btn btn-primary btn-large">Back to Welcome</a>
+    </h3>
   </div>
 </template>
 
-<template name="createDialog">
+<template name="zoneForm">
   <h2 class="center-text">Submit Your Zone Report</h2>
   <form class="form-horizontal center-form">
    <div>
