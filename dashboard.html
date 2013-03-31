@@ -22,9 +22,9 @@
    <div>
     <fieldset>
       <div class="control-group">
-        <label for="zoneCaptain" class="control-label">Zone Captain (your name)</label>
+        <label for="zoneCaptain" class="control-label">Zone Captain<br/>(your name)</label>
         <div class="controls">
-          <input type="text" name="zoneCaptain" id="zoneCaptain">
+          <input type="text" name="zoneCaptain" id="zoneCaptain" required>
         </div>
       </div>
 
@@ -43,63 +43,63 @@
       <div class="control-group ">
         <label for="zone" class="control-label">Cleanup Zone/Site</label>
         <div class="controls">
-          <input type="text" class="span4" name="zone" id="zone">
+          <input type="text" class="span4" name="zone" id="zone" required>
         </div>
       </div>
 
       <div class="control-group ">
         <label for="volunteers" class="control-label">Total # Volunteers</label>
         <div class="controls">
-         <input type="number" class="span2" name="volunteers" id="volunteers" min="1">
+         <input type="number" class="span2" name="volunteers" id="volunteers" min="1" required pattern="[0-9]*">
        </div>
       </div>
 
       <div class="control-group ">
-        <label for="poundsCollected" class="control-label">Estimated Weight (lbs)</label>
+        <label for="poundsCollected" class="control-label">Estimated Weight<br/>(lbs)</label>
         <div class="controls">
-          <input type="number" class="span2" name="poundsCollected" id="poundsCollected" min="1">
+          <input type="number" class="span2" name="poundsCollected" id="poundsCollected" min="1" required pattern="[0-9]*">
         </div>
       </div>
 
       <div class="control-group ">
-        <label for="milesCleaned" class="control-label">Aprox. Distance Cleaned (miles)</label>
+        <label for="milesCleaned" class="control-label">Aprox. Distance Cleaned<br/>(miles)</label>
         <div class="controls">
-          <input type="number" class="span2" name="milesCleaned" id="milesCleaned" min="0">
+          <input type="number" class="span2" name="milesCleaned" id="milesCleaned" min="0" required pattern="[0-9]*">
         </div>
       </div>
 
       <div class="control-group ">
         <label for="mostUnusualItem" class="control-label">Most Unusual Item</label>
         <div class="controls">
-          <input type="text" class="span4" name="mostUnusualItem" id="mostUnusualItem">
+          <input type="text" class="span4" name="mostUnusualItem" id="mostUnusualItem" required>
         </div>
       </div>
 
       <div class="control-group ">
         <label for="mostCommonItem" class="control-label">Most Common Item</label>
           <div class="controls">
-            <input type="text" class="span4" name="mostCommonItem" id="mostCommonItem">
+            <input type="text" class="span4" name="mostCommonItem" id="mostCommonItem" required>
           </div>
       </div>
 
       <div class="control-group ">
         <label for="largestItem" class="control-label">Largest Item</label>
         <div class="controls">
-          <input type="text" class="span4" name="largestItem" id="largestItem">
+          <input type="text" class="span4" name="largestItem" id="largestItem" required>
         </div>
       </div>
 
       <div class="control-group ">
         <label for="activeMilitary" class="control-label">Active Military</label>
         <div class="controls">
-         <input type="number" class="span2" name="activeMilitary" id="activeMilitary" min="0">
+         <input type="number" class="span2" name="activeMilitary" id="activeMilitary" min="0" required pattern="[0-9]*">
        </div>
       </div>
 
       <div class="control-group ">
         <label for="boats" class="control-label">Boats</label>
         <div class="controls">
-         <input type="number" class="span2" name="boats" id="boats" min="0">
+         <input type="number" class="span2" name="boats" id="boats" min="0" required pattern="[0-9]*">
        </div>
       </div>
 

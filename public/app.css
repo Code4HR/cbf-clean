@@ -3,18 +3,37 @@
   display: none;
 }
 
-.center { 
-  float: none; 
-  margin-left: auto; 
-  margin-right: auto; 
+.center {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .center-text {
   text-align: center;
 }
 
-.center-form {
-  margin: auto; 
-  width: 500px
+@media (min-width: 768px) {
+  .center-form {
+    margin: auto;
+    width: 500px
+  }
 }
 
+@media (max-width: 768px) {
+  .hero-unit h1 {
+    font-size: 30px;
+  }
+
+  .hero-unit h3 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 25px;
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+}
