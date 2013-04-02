@@ -179,7 +179,6 @@ Template.zoneForm.events({
       activeMilitary: document.getElementById("activeMilitary").value,
       boats: document.getElementById("boats").value,
       trashPickup: document.getElementById("trashPickup").checked,
-      picnic: document.getElementById("picnic").checked,
       createdAt: new Date()
     });
     Session.set("showThankYou", true);
