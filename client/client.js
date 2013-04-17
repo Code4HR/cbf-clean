@@ -165,10 +165,15 @@ Template.zoneForm.events({
     Session.set("hideHello", false);
   },
 
-  'click .save' : function () {
+  'click .save' : function (event, template) {
+    var partner = template.find(".partner").value;
+    if (! partner.length) {
+      p = template.find(".partner");
+      parnter = p.options[p.selectedIndex].value;
+    }
     ZoneReports.insert({
       zoneCaptain: document.getElementById("zoneCaptain").value,
-      partner: document.getElementById("partner").value,
+      partner: partner,
       zone: document.getElementById("zone").value,
       volunteers: document.getElementById("volunteers").value,
       poundsCollected: document.getElementById("poundsCollected").value,
