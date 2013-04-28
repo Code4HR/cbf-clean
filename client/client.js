@@ -107,7 +107,9 @@ Template.reportDetail.moreDetail = function () {
 };
 
 Template.partner.selected = function () {
+  // console.log(this.name);
   if (this.name === Session.get("partnerSelected")) {
+    console.log(this.name + " " + Session.get("partnerSelected") + " selected");
     return "selected";
   }
 };
@@ -132,7 +134,13 @@ Template.navbar.events({
 
 Template.reportMain.events({
   'change .select-partner' : function () {
-    Session.set("partnerSelected", document.getElementById("partner").value);
+    var partner = document.getElementById("partner").value;
+    //this is to support IE7/8
+    if (! partner.length) {
+      p = document.getElementById("partner");
+      partner = p.options[p.selectedIndex].text;
+    }
+    Session.set("partnerSelected", partner);
   },
 
   'click .btn-more' : function () {
@@ -166,10 +174,11 @@ Template.zoneForm.events({
   },
 
   'click .save' : function (event, template) {
-    var partner = template.find(".partner").value;
+    var partner = document.getElementById("partner").value;
+    //this is to support IE7/8
     if (! partner.length) {
-      p = template.find(".partner");
-      parnter = p.options[p.selectedIndex].value;
+      p = document.getElementById("partner");
+      partner = p.options[p.selectedIndex].text;
     }
     ZoneReports.insert({
       zoneCaptain: document.getElementById("zoneCaptain").value,
