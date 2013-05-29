@@ -18,7 +18,10 @@ if (Meteor.isServer) {
   var base = path.resolve('.');
   var isBundle = (fs.existsSync(base + '/bundle') || fs.existsSync(base + '/static'));
   var publicPath = base + (isBundle ? '/bundle/static' : '/public');
-
+  if (process.env.NODE_ENV === 'production') {
+    // if in Modulus.io
+    publicPath = (base + '/static');
+  };
   // start an observer on the ZoneReports Collection
   // this takes the listed columns from the DB and puts in csv file on every
   // startup or every write to the collection in DB
