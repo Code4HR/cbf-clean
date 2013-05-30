@@ -2,7 +2,7 @@ cbf-clean
 =============
 
 testing/demo site: http://cbf-clean.meteor.com
-prod site: ??
+prod site: http://cleanthebayday.net
 
 [Clean the Bay Day](http://www.cbf.org/clean) (Chesapeake Bay) reporting app and live stats single-page-app.
 
