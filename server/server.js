@@ -55,7 +55,8 @@ Meteor.startup(
     "VA Dept. of Conservation and Recreation ",
     "Vinings Marine Group",
     "Virginia Eastern Shore Land Trust",
-    "York County Waterways Alliance"];
+    "York County Waterways Alliance",
+    "OTHER"];
     for (var i = 0; i < names.length; i++)
       Partners.insert({name: names[i]});
 

@@ -154,8 +154,11 @@ Template.reportMain.events({
 
 Template.thankYouBanner.events({
   'click .btn' : function () {
+    Session.set("showReportMain", true);
     Session.set("showThankYou", false);
-    Session.set("hideHello", false);
+    Session.set("navReportActive", true);
+    Session.set("showForm", false);
+    Session.set("hideHello", true);
   }
 });
 
