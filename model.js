@@ -10,6 +10,10 @@ ZoneReports.deny({
   remove : function () { return true; }
 });
 
+// publish zoneReports without IP
+//    console.log(this.socket.remoteAddress);
+
+
 
 if (Meteor.isServer) {
   // load up path to static files
@@ -21,7 +25,7 @@ if (Meteor.isServer) {
   if (process.env.NODE_ENV === 'production') {
     // if in Modulus.io
     publicPath = (base + '/static');
-  };
+  }
   // start an observer on the ZoneReports Collection
   // this takes the listed columns from the DB and puts in csv file on every
   // startup or every write to the collection in DB
