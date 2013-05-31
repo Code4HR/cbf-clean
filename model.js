@@ -10,11 +10,6 @@ ZoneReports.deny({
   remove : function () { return true; }
 });
 
-// publish zoneReports without IP
-//    console.log(this.socket.remoteAddress);
-
-
-
 if (Meteor.isServer) {
   // load up path to static files
   var path = Npm.require('path');

@@ -18,7 +18,7 @@ Meteor.startup(
     //"City of Virginia Beach",
     "Crowne Point Marina",
     "Eastern Shore Land Trust",
-    "Eastern Short Soil and Water Conservation District"
+    "Eastern Short Soil and Water Conservation District",
     //"Gloucester County",
     //"Hampton Bay Days",
     //"Hampton Clean City Commission",
@@ -63,8 +63,8 @@ Meteor.startup(
     //"Vinings Marine Group",
     "Virginia Eastern Shore Land Trust",
     //"York County Waterways Alliance",
-    "OTHER",
-    "Tanner Council Reporting ONLY - DO NOT USE"];
+    "- OTHER - Please Be Specific in next field",
+    "- Tanner Council Reporting ONLY - DO NOT USE"];
     for (var i = 0; i < names.length; i++)
       Partners.insert({name: names[i]});
 
