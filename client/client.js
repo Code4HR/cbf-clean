@@ -189,7 +189,7 @@ Template.zoneForm.events({
       zone: document.getElementById("zone").value,
       volunteers: document.getElementById("volunteers").value,
       poundsCollected: document.getElementById("poundsCollected").value,
-      milesCleaned: document.getElementById("milesCleaned").value,
+      milesCleaned: document.getElementById("milesCleaned").value.replace(",", ""),
       mostUnusualItem: document.getElementById("mostUnusualItem").value,
       mostCommonItem: document.getElementById("mostCommonItem").value,
       largestItem: document.getElementById("largestItem").value,
