@@ -17,7 +17,7 @@ var totals = function (reports) {
     totalReports ++;
     if (report.volunteers > 0) totalVolunteers += parseInt(report.volunteers, 0);
     if (report.poundsCollected > 0) totalPounds += parseInt(report.poundsCollected, 0);
-    if (report.milesCleaned > 0) totalMiles += parseInt(report.milesCleaned, 0);
+    if (report.milesCleaned > 0) totalMiles += parseFloat(report.milesCleaned, 0);
   });
   Session.set("totalReports", totalReports);
   Session.set("totalVolunteers", totalVolunteers);
