@@ -16,13 +16,13 @@ var totals = function (reports) {
   reports.forEach(function (report) {
     totalReports ++;
     if (report.volunteers > 0) totalVolunteers += parseInt(report.volunteers, 0);
-    if (report.poundsCollected > 0) totalPounds += parseInt(report.poundsCollected, 0);
-    if (report.milesCleaned > 0) totalMiles += parseFloat(report.milesCleaned, 0);
+    if (report.poundsCollected.replace(/[^\d\.\-\ ]/g, "") > 0) totalPounds += parseFloat(report.poundsCollected.replace(/[^\d\.\-\ ]/g, ""), 0);
+    if (report.milesCleaned.replace(/[^\d\.\-\ ]/g, "") > 0) totalMiles += parseFloat(report.milesCleaned.replace(/[^\d\.\-\ ]/g, ""), 0);
   });
   Session.set("totalReports", totalReports);
   Session.set("totalVolunteers", totalVolunteers);
-  Session.set("totalPounds", totalPounds);
-  Session.set("totalMiles", totalMiles);
+  Session.set("totalPounds", totalPounds.toFixed(1));
+  Session.set("totalMiles", totalMiles.toFixed(1));
 };
 
 Template.page.hideHello = function () {
@@ -188,8 +188,8 @@ Template.zoneForm.events({
       partner: partner,
       zone: document.getElementById("zone").value,
       volunteers: document.getElementById("volunteers").value,
-      poundsCollected: document.getElementById("poundsCollected").value.replace(",", ""),
-      milesCleaned: document.getElementById("milesCleaned").value,
+      poundsCollected: document.getElementById("poundsCollected").value.replace(/[^\d\.\-\ ]/g, ""),
+      milesCleaned: document.getElementById("milesCleaned").value.replace(/[^\d\.\-\ ]/g, ""),
       mostUnusualItem: document.getElementById("mostUnusualItem").value,
       mostCommonItem: document.getElementById("mostCommonItem").value,
       largestItem: document.getElementById("largestItem").value,
