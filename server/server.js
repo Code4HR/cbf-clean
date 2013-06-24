@@ -17,7 +17,7 @@ Meteor.startup(
     //"City of Suffolk",
     //"City of Virginia Beach",
     "Crown Point Marina",
-    "Eastern Short Soil and Water Conservation District",
+    "Eastern Shore Soil and Water Conservation District",
     //"Gloucester County",
     //"Hampton Bay Days",
     //"Hampton Clean City Commission",
