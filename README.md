@@ -1,4 +1,4 @@
-cbf-clean
+## cbf-clean: Clean the Bay Day Reporting
 =============
 
 testing/demo site: http://cbf-clean.meteor.com
