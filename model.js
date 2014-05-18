@@ -24,11 +24,11 @@ if (Meteor.isServer) {
   // start an observer on the ZoneReports Collection
   // this takes the listed columns from the DB and puts in csv file on every
   // startup or every write to the collection in DB
-  var query = ZoneReports.find({}, {sort: {partner: 1}});
-  var handle = query.observe({
-    added: function () {
-      var reports = ZoneReports.find({}, {}).fetch();
-      exportCsv.doit(reports, publicPath);
-    }
-  });
+  // var query = ZoneReports.find({}, {sort: {partner: 1}});
+  // var handle = query.observe({
+  //   added: function () {
+  //     var reports = ZoneReports.find({}, {}).fetch();
+  //     exportCsv.doit(reports, publicPath);
+  //   }
+  // });
 }

@@ -1,0 +1,91 @@
+<template name="report">
+  <div class="row">
+    <div class="col-lg-4 col-md-4">
+      <select name="partner" id="partner" class="select-partner">
+        <option>All</option>
+        {{#each partners}}
+          {{> partner}}
+        {{/each}}
+      </select>
+    </div>
+    <div class="col-lg-8 col-md-8">
+      <div class="btn-group">
+        <button type="button" name="options" id="btn-less" class="btn btn-primary btn-less"> Less Detail</button>
+        <button type="button" name="options" id="btn-more" class="btn btn-primary btn-more"> More Details</button>
+        <button type="button" class="btn btn-primary">Download All to .CSV</button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    {{> reportDetail}}
+  </div>
+</template>
+
+<template name="partner">
+  <option {{selected}}>
+    {{name}}
+  </option>
+</template>
+
+<template name="reportDetail">
+  <table class="table table-striped table-condensed table-responsive">
+    <thead>
+      <tr>
+        <th>Zone Captain</th>
+        <th>Partner</th>
+        <th>Zone</th>
+        <th>Volunteers</th>
+        <th>Pounds</th>
+        <th>Miles</th>
+        {{#if moreDetail}}
+          <th>Most Unusual</th>
+          <th>Most Common</th>
+          <th>Largest Item</th>
+          <th>Military</th>
+          <th>Boats</th>
+          <th>Trash</th>
+        {{/if}}
+      </tr>
+      <tr class="info">
+        <th>Totals</th>
+        <th>Reports: {{totalReports}}</th>
+        <th> </th>
+        <th>{{totalVolunteers}}</th>
+        <th>{{totalPounds}}</th>
+        <th>{{totalMiles}}</th>
+        {{#if moreDetail}}
+          <th> </th>
+          <th> </th>
+          <th> </th>
+          <th> </th>
+          <th> </th>
+          <th> </th>
+        {{/if}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each reports}}
+        <tr>
+          <td>{{zoneCaptain}}</td>
+          <td>{{partner}}</td>
+          <td>{{zone}}</td>
+          <td>{{volunteers}}</td>
+          <td>{{poundsCollected}}</td>
+          <td>{{milesCleaned}}</td>
+          {{#if moreDetail}}
+            <td>{{mostUnusualItem}}</td>
+            <td>{{mostCommonItem}}</td>
+            <td>{{largestItem}}</td>
+            <td>{{activeMilitary}}</td>
+            <td>{{boats}}</td>
+            <td>
+              {{#if trashPickup}}
+                Yes
+              {{/if}}
+            </td>
+          {{/if}}
+        </tr>
+       {{/each}}
+      </tbody>
+  </table>
+</template>

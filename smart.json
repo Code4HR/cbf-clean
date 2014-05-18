@@ -1,0 +1,9 @@
+{
+  "packages": {
+    "iron-router": {},
+    "node-csv-npm": {},
+    "bootstrap-3": {},
+    "fast-render": {},
+    "Mesosphere": {}
+  }
+}

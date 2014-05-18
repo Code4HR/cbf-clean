@@ -1,0 +1,54 @@
+<head>
+  <title>CBF Clean the Bay Day 2014</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch-icon-114x114-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/apple-touch-icon-72x72-precomposed.png">
+  <link rel="apple-touch-icon-precomposed" href="/apple-touch-icon-57x57-precomposed.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+
+<template name="layout">
+  {{> navbar}}
+  <div class="container">
+    {{> yield}}
+    {{> footer}}
+  </div>
+</template>
+
+
+<template name="navbar">
+  <nav class="navbar navbar-default" role="navigation">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">CtBD 2014</a>
+    </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="{{formActive}}"><a href="{{pathFor 'form'}}">Form</a></li>
+        <li class="{{reportActive}}"><a href="{{pathFor 'report'}}">Report</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container -->
+</nav>
+</template>
+
+
+<template name="footer">
+  <br /><br /><br /><hr>
+  <footer>
+    <p class="pull-left">
+      Built for <a href="http://cbf.org">
+      Chesapeake Bay Foundation</a>
+      by <a href="http://codeforhamptonroads.org">
+      Volunteers with Code for Hampton Roads</a>. <br />For support call CTBD Coordinator Tanner Council - Work:757.622.1964 - Cell:434.882.8266 - tcouncil@cbf.org.</p>
+  </footer>
+</template>
