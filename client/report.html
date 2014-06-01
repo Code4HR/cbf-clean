@@ -1,7 +1,7 @@
 <template name="report">
   <div class="row">
     <div class="col-lg-4 col-md-4">
-      <select name="partner" id="partner" class="select-partner">
+      <select name="partner" id="partner" class="select-partner form-control">
         <option>All</option>
         {{#each partners}}
           {{> partner}}
@@ -28,6 +28,7 @@
 </template>
 
 <template name="reportDetail">
+  <br/>
   <table class="table table-striped table-condensed table-responsive">
     <thead>
       <tr>

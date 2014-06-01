@@ -1,34 +1,45 @@
-Mesosphere({
-  name: "zone-report",
-  method: "",
-  template: "",
-  fields: {
-    zoneCaptain: {
-      required: true,
-      message: "Enter your name",
-      rules: {
-        minLength: 3
-      }
-    },
-    partner: {
-      required: true
-    },
-    zone: {
+// Mesosphere({
+//   name: "zone-report",
+//   method: "",
+//   template: "",
+//   fields: {
+//     zoneCaptain: {
+//       required: true,
+//       message: "Enter your name",
+//       rules: {
+//         minLength: 3
+//       }
+//     },
+//     partner: {
+//       required: true
+//     },
+//     zone: {
+//
+//     },
+//     volunteers: {
+//       required: true
+//     },
+//     poundsCollected: {
+//       required: true
+//     },
+//     milesCleaned: {
+//       required: true
+//     }
+//   }
+// });
 
-    },
-    volunteers: {
-      required: true
-    },
-    poundsCollected: {
-      required: true
-    },
-    milesCleaned: {
-      required: true
+Meteor.startup(function() {
+  Regulate.form.onSubmit(function (error, data) {
+    if (error) {
+      console.log('Client-side validation failed.');
+      console.log('The error', error);
+    } else {
+      console.log('Client-side validation passed!');
+      console.log('The data', data);
+      Meteor.call('register', data);
     }
-  }
+  });
 });
-
-
 
 
 Template.form.partners = function () {
@@ -52,38 +63,38 @@ Template.form.rendered = function () {
   });
 };
 
-Template.form.events({
-
-  'click .cancel' : function () {
-    Router.go("welcome");
-  },
-
-  'click .save' : function (event, template) {
-    var validationObject = Mesosphere.zone-report.validate(rawFormData);
-
-    var partner = document.getElementById("partner").value;
-    //this is to support IE7/8
-    if (! partner.length) {
-      p = document.getElementById("partner");
-      partner = p.options[p.selectedIndex].text;
-    }
-
-    ZoneReports.insert({
-      zoneCaptain: document.getElementById("zoneCaptain").value,
-      partner: partner,
-      zone: document.getElementById("zone").value,
-      volunteers: document.getElementById("volunteers").value,
-      poundsCollected: document.getElementById("poundsCollected").value.replace(/[^\d\.\-\ ]/g, ""),
-      milesCleaned: document.getElementById("milesCleaned").value.replace(/[^\d\.\-\ ]/g, ""),
-      mostUnusualItem: document.getElementById("mostUnusualItem").value,
-      mostCommonItem: document.getElementById("mostCommonItem").value,
-      largestItem: document.getElementById("largestItem").value,
-      activeMilitary: document.getElementById("activeMilitary").value,
-      boats: document.getElementById("boats").value,
-      trashPickup: document.getElementById("trashPickup").checked,
-      createdAt: new Date()
-    });
-
-    Router.go("thankyou");
-  }
-});
+// Template.form.events({
+//
+//   'click .cancel' : function () {
+//     Router.go("welcome");
+//   },
+//
+//   'click .save' : function (event, template) {
+//     // var validationObject = Mesosphere.zone-report.validate(rawFormData);
+//
+//     var partner = document.getElementById("partner").value;
+//     //this is to support IE7/8
+//     if (! partner.length) {
+//       p = document.getElementById("partner");
+//       partner = p.options[p.selectedIndex].text;
+//     }
+//
+//     ZoneReports.insert({
+//       zoneCaptain: document.getElementById("zoneCaptain").value,
+//       partner: partner,
+//       zone: document.getElementById("zone").value,
+//       volunteers: document.getElementById("volunteers").value,
+//       poundsCollected: document.getElementById("poundsCollected").value.replace(/[^\d\.\-\ ]/g, ""),
+//       milesCleaned: document.getElementById("milesCleaned").value.replace(/[^\d\.\-\ ]/g, ""),
+//       mostUnusualItem: document.getElementById("mostUnusualItem").value,
+//       mostCommonItem: document.getElementById("mostCommonItem").value,
+//       largestItem: document.getElementById("largestItem").value,
+//       activeMilitary: document.getElementById("activeMilitary").value,
+//       boats: document.getElementById("boats").value,
+//       trashPickup: document.getElementById("trashPickup").checked,
+//       createdAt: new Date()
+//     });
+//
+//     Router.go("thankyou");
+//   }
+// });
