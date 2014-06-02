@@ -1,77 +1,87 @@
 <template name="form">
   <div class="page-header">
     <h1 class="text-center">Submit Your Zone Report</h1>
-    <h3 class="text-center"><span style="color:red">*</span> is required</h3>
+    <h3 class="text-center"><span class="text-danger">*</span> is required</h3>
   </div>
-  <form role="form" class="form-horizontal">
+  <form role="form" id="form" class="form-horizontal">
     <div class="row">
       <div class="col-lg-4 col-md-4 col-sm-3"></div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
         <fieldset>
           <div class="form-group">
-            <label for="zoneCaptain" class="control-label">Zone Captain (your name) <span style="color:red">*</span></label>
+            <label for="zoneCaptain" class="control-label">Zone Captain (your name) <span class="text-danger">*</span></label>
             <input type="text" name="zoneCaptain" id="zoneCaptain" placeholder="Your Name" required class="form-control">
-            <div id="zoneCaptain-error" class="help-inline cr-error"></div>
+            <div id="zoneCaptain-error" class="bg-danger"></div>
           </div>
 
           <div class="form-group">
-            <label for="partner" class="control-label">Partner Organization <span style="color:red">*</span></label>
-            <select name="partner" id="partner" class="partner form-control">
+            <label for="partner" class="control-label">Partner Organization <span class="text-danger">*</span></label>
+            <select name="partner" id="partner" required class="partner form-control">
               <option>--Choose Your Partner Org--</option>
               {{#each partners}}
                 {{> partner}}
               {{/each}}
             </select>
-            <div id="partner-error" class="help-inline cr-error"></div>
+            <div id="partner-error" class="bg-danger"></div>
           </div>
 
           <div class="form-group">
-            <label for="zone" class="control-label">Cleanup Zone/Site <span style="color:red">*</span></label>
+            <label for="zone" class="control-label">Cleanup Zone/Site <span class="text-danger">*</span></label>
             <input type="text" name="zone" id="zone" placeholder="i.e. City of Virginia Beach" required class="form-control">
-            <div id="zone-error" class="help-inline cr-error"></div>
+            <div id="zone-error" class="bg-danger"></div>
           </div>
 
           <div class="form-group">
-            <label for="volunteers" class="control-label">Total Volunteers (number) <span style="color:red">*</span></label>
-            <input type="number" name="volunteers" id="volunteers" min="0" required pattern="[0-9]*" class="form-control">
-            <div id="volunteers-error" class="help-inline cr-error"></div>
+            <label for="volunteers" class="control-label">Total Volunteers (number) <span class="text-danger">*</span></label>
+            <input type="number" name="volunteers" id="volunteers" min="0" required step="1" class="form-control">
+            <div id="volunteers-error" class="bg-danger"></div>
           </div>
 
           <div class="form-group">
-            <label for="poundsCollected" class="control-label">Estimated Weight (lbs) <span style="color:red">*</span></label>
-            <input type="number" name="poundsCollected" id="poundsCollected" min="0" required pattern="[0-9]*" class="form-control">
-            <div id="poundsCollected-error" class="help-inline cr-error"></div>
+            <label for="poundsCollected" class="control-label">Estimated Weight (lbs) <span class="text-danger">*</span></label>
+            <input type="number" name="poundsCollected" id="poundsCollected" min="0" required step="1" class="form-control">
+            <div id="poundsCollected-error" class="bg-danger"></div>
+            {{#if displayPoundsHelp}}
+              {{> poundsHelp}}
+            {{else}}
+              <a href="#" class="help-block poundsHelp">Help</a>
+            {{/if}}
           </div>
 
           <div class="form-group">
-            <label for="milesCleaned" class="control-label">Approx. Distance Cleaned (miles) <span style="color:red">*</span></label>
-            <input type="number" name="milesCleaned" id="milesCleaned" min="0" required pattern="[0-9]*" class="form-control">
-            <div id="milesCleaned-error" class="help-inline cr-error"></div>
+            <label for="milesCleaned" class="control-label">Approx. Distance Cleaned (miles) <span class="text-danger">*</span></label>
+            <input type="number" name="milesCleaned" id="milesCleaned" min="0" required step="0.1" class="form-control">
+            <div id="milesCleaned-error" class="bg-danger"></div>
+            {{#if displayMilesHelp}}
+              {{> milesHelp}}
+            {{else}}
+              <a href="#" class="help-block milesHelp">Help</a>
+            {{/if}}
           </div>
 
           <div class="form-group">
             <label for="mostUnusualItem" class="control-label">Most Unusual Item</label>
-            <input type="text" name="mostUnusualItem" id="mostUnusualItem" required class="form-control">
+            <input type="text" name="mostUnusualItem" id="mostUnusualItem" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="mostCommonItem" class="control-label">Most Common Item</label>
-            <input type="text" name="mostCommonItem" id="mostCommonItem" required class="form-control">
+            <input type="text" name="mostCommonItem" id="mostCommonItem" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="largestItem" class="control-label">Largest Item</label>
-            <input type="text" name="largestItem" id="largestItem" required class="form-control">
+            <input type="text" name="largestItem" id="largestItem" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="activeMilitary" class="control-label">Active Military (number)</label>
-            <input type="number" name="activeMilitary" id="activeMilitary" min="0" required pattern="[0-9]*" class="form-control">
+            <input type="number" name="activeMilitary" id="activeMilitary" min="0" pattern="[0-9]*" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="boats" class="control-label">Boats Used for Cleanup (number)</label>
-            <input type="number" name="boats" id="boats" min="0" required pattern="[0-9]*" class="form-control">
+            <input type="number" name="boats" id="boats" min="0" pattern="[0-9]*" class="form-control">
           </div>
 
           <div class="form-group">
@@ -90,4 +100,52 @@
       <div class="col-lg-4 col-md-4 col-sm-3"></div>
     </div>
   </form>
+</template>
+
+<template name="poundsHelp">
+  <p class="alert alert-warning">
+    <button type="button" class="close closePoundsHelp">&times;</button>
+    <strong>Estimated weidghts for debris collected</strong><br/><br/>
+    Automobile parts:25 lbs.<br/>
+    Metal container:50 lbs.<br/>
+    Bag of litter:15-25 lbs.<br/>
+    Wooden pallet:30 lbs.<br/>
+    Bag of clothes:30 lbs.<br/>
+    Refrigerator:500 lbs.<br/>
+    Bicycle:25 lbs.<br/>
+    Shopping cart:50-60 lbs.<br/>
+    Chair:25 lbs.<br/>
+    Sofa:80 lbs.<br/>
+    Dishwasher:75 lbs.<br/>
+    TV/Computer:15 lbs.<br/>
+    Dresser:50 lbs.<br/>
+    Tire:25-50 lbs.<br/>
+    Mattress:25 lbs.
+  </p>
+</template>
+
+<template name="milesHelp">
+  <p class="alert alert-warning">
+    <button type="button" class="close closeMilesHelp">&times;</button>
+    <strong>Estimating Distance to be Cleaned</strong><br/><br/>
+    Estimate the longest linear length
+    (i.e., from point A to point B along the beach/shore)
+    to be cleaned by the volunteers. Do not report area measurements,
+    such as square feet/miles. Use the following method to convert
+    area measurements to linear distances: <br/><br/>
+
+    (Number of square feet
+    cleaned) ÷ 10 ft. ÷ 5280 ft. = (linear miles cleaned)<br/><br/>
+
+    10 feet represents an average linear path cleaned by a volunteer
+    (5 feet on each side of the person)<br/><br/>
+
+    5280 ft. = 1 mile<br/>
+    43,560 ft. = 1 acre<br/><br/>
+
+    Example 1: You plan to clean a 1-acre area:
+     43,560 ÷ 10 ÷ 5280 = 0.825 miles cleaned<br/><br/>
+
+    Example 2: You plan to clean 5000 ft of shoreline: 5000 ÷ 10 ÷ 5280 = 0.094 miles
+  </p>
 </template>
