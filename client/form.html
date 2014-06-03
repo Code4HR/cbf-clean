@@ -39,7 +39,7 @@
 
           <div class="form-group">
             <label for="poundsCollected" class="control-label">Estimated Weight (lbs) <span class="text-danger">*</span></label>
-            <input type="number" name="poundsCollected" id="poundsCollected" min="0" required step="1" class="form-control">
+            <input type="number" name="poundsCollected" id="poundsCollected" min="0" required step="0.01" class="form-control">
             <div id="poundsCollected-error" class="bg-danger"></div>
             {{#if displayPoundsHelp}}
               {{> poundsHelp}}
@@ -50,7 +50,7 @@
 
           <div class="form-group">
             <label for="milesCleaned" class="control-label">Approx. Distance Cleaned (miles) <span class="text-danger">*</span></label>
-            <input type="number" name="milesCleaned" id="milesCleaned" min="0" required step="0.1" class="form-control">
+            <input type="number" name="milesCleaned" id="milesCleaned" min="0" required step="0.01" class="form-control">
             <div id="milesCleaned-error" class="bg-danger"></div>
             {{#if displayMilesHelp}}
               {{> milesHelp}}

@@ -1,5 +1,12 @@
 <template name="report">
   <div class="row">
+    <div class="col-lg-12 col-md-12">
+      <h3>CtBD Live Reporting
+        <small>Note this table is live and auto updates, newest report at top. Select partner to filter.</small>
+      </h3>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-lg-4 col-md-4">
       <select name="partner" id="partner" class="select-partner form-control">
         <option>All</option>
@@ -21,11 +28,6 @@
   </div>
 </template>
 
-<template name="partner">
-  <option {{selected}}>
-    {{name}}
-  </option>
-</template>
 
 <template name="reportDetail">
   <br/>

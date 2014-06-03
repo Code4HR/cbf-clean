@@ -14,7 +14,8 @@ Meteor.startup(function() {
 });
 
 Template.form.partners = function () {
-  return Partners.find({}, {sort: {name: 1}});
+  // return Partners.find({}, {sort: {name: 1}});
+  return Partners.find();
 };
 
 Template.form.displayMilesHelp = function () {

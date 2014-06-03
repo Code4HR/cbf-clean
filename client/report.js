@@ -1,13 +1,4 @@
-
-// If no partner selected, select none. Remember selection.
-Meteor.startup(function () {
-  Meteor.autorun(function () {
-    if (! Session.get("partnerSelected")) {
-      Session.set("partnerSelected", "All");
-    }
-  });
-});
-
+// calculate totals for report data
 var totals = function (reports) {
   var totalReports = 0;
   var totalVolunteers = 0;
@@ -25,36 +16,9 @@ var totals = function (reports) {
   Session.set("totalMiles", totalMiles.toFixed(1));
 };
 
-Template.navbar.formActive = function () {
-  if (Session.get("formActive")) {
-    return "active";
-  }
-};
-
-Template.navbar.reportActive = function () {
-  if (Session.get("reportActive")) {
-    return "active";
-  }
-};
-
 Template.report.partners = function () {
-  return Partners.find({}, {sort: {name: 1}});
-};
-
-Template.reportDetail.totalReports = function () {
-  return Session.get("totalReports");
-};
-
-Template.reportDetail.totalVolunteers = function () {
-  return Session.get("totalVolunteers");
-};
-
-Template.reportDetail.totalPounds = function () {
-  return Session.get("totalPounds");
-};
-
-Template.reportDetail.totalMiles = function () {
-  return Session.get("totalMiles");
+  // return Partners.find({}, {sort: {name: 1}});
+  return Partners.find();
 };
 
 Template.report.moreDetail = function () {
@@ -77,12 +41,20 @@ Template.reportDetail.moreDetail = function () {
   return Session.get("moreDetail");
 };
 
-Template.partner.selected = function () {
-  // console.log(this.name);
-  if (this.name === Session.get("partnerSelected")) {
-    // console.log(this.name + " " + Session.get("partnerSelected") + " selected");
-    return "selected";
-  }
+Template.reportDetail.totalReports = function () {
+  return Session.get("totalReports");
+};
+
+Template.reportDetail.totalVolunteers = function () {
+  return Session.get("totalVolunteers");
+};
+
+Template.reportDetail.totalPounds = function () {
+  return Session.get("totalPounds");
+};
+
+Template.reportDetail.totalMiles = function () {
+  return Session.get("totalMiles");
 };
 
 Template.report.events({
