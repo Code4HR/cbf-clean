@@ -74,5 +74,10 @@ Template.report.events({
 
   'click .btn-less' : function () {
     Session.set("moreDetail", false);
+  },
+  'click .download': function (e) {
+    csv = json2csv(ZoneReports.find().fetch(), true, true);
+    e.target.href = "data:text/csv;charset=utf-8," + escape(csv);
+    e.target.download = "ctbd2014reports.csv";
   }
 });

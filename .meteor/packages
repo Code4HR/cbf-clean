@@ -8,7 +8,7 @@ insecure
 standard-app-packages
 npm
 iron-router
-node-csv-npm
 jquery
 bootstrap-3
 regulate.js
+json2csv
