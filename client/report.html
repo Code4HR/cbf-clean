@@ -2,20 +2,13 @@
   <div class="row">
     <div class="col-lg-12 col-md-12">
       <h3>CtBD Live Reporting
-        <small>Note this table is live and auto updates, newest report at top. Select partner to filter.</small>
+        <small>This report is live and auto updates, newest report at top.
+          Download only works for Chrome and Firefox browsers.</small>
       </h3>
     </div>
   </div>
   <div class="row">
-    <div class="col-lg-4 col-md-4">
-      <select name="partner" id="partner" class="select-partner form-control">
-        <option>All</option>
-        {{#each partners}}
-          {{> partner}}
-        {{/each}}
-      </select>
-    </div>
-    <div class="col-lg-8 col-md-8">
+    <div class="col-lg-12 col-md-12">
       <div class="btn-group">
         <button type="button" name="options" id="btn-less" class="btn btn-primary btn-less"> Less Detail</button>
         <button type="button" name="options" id="btn-more" class="btn btn-primary btn-more"> More Details</button>

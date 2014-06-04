@@ -10,7 +10,7 @@ Meteor.startup(function () {
 Template.partner.selected = function () {
   //console.log(this.name);
   if (this.name === Session.get("partnerSelected")) {
-    console.log(this.name + " " + Session.get("partnerSelected") + " selected");
+    // console.log(this.name + " " + Session.get("partnerSelected") + " selected");
     return "selected";
   }
 };

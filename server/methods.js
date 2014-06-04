@@ -5,10 +5,10 @@ Meteor.methods({
   logReport: function (data) {
     Regulate.form.validate(data, function (error, data) {
       if (error) {
-        console.log('Server side validation failed.');
+        // console.log('Server side validation failed.');
       } else {
-        console.log('Server side validation passed!');
-        console.log(data);
+        // console.log('Server side validation passed!');
+        // console.log(data);
 
         // Regulate.js isn't handeling the checkbox correctly
         // TODO: improve this to be less hacky or replace Regulate.js validation

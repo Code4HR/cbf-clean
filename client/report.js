@@ -26,13 +26,13 @@ Template.report.moreDetail = function () {
 };
 
 Template.reportDetail.reports = function () {
-  var partnerSelected = Session.get("partnerSelected");
-  var reports;
-  if (partnerSelected === "All") {
+  // var partnerSelected = Session.get("partnerSelected");
+  // var reports;
+  // if (partnerSelected === "All") {
     reports = ZoneReports.find({}, {sort: {"createdAt": -1}});
-  } else {
-    reports = ZoneReports.find({"partner": partnerSelected}, {sort: {"createdAt": -1}});
-  }
+  // } else {
+  //   reports = ZoneReports.find({"partner": partnerSelected}, {sort: {"createdAt": -1}});
+  // }
   totals(reports);
   return reports;
 };
