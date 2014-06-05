@@ -16,6 +16,7 @@ Meteor.startup(
     "City of Norfolk (Keep Norfolk Beautiful)",
     "City of Poquoson",
     "City of Portsmouth",
+    "Town of Shenandoah",
     "City of Suffolk",
     "City of Virginia Beach",
     "Clean Virginia Waterways",

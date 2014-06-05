@@ -9,9 +9,15 @@
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
         <fieldset>
           <div class="form-group">
-            <label for="zoneCaptain" class="control-label">Zone Captain (your name) <span class="text-danger">*</span></label>
-            <input type="text" name="zoneCaptain" id="zoneCaptain" placeholder="Your Name" required class="form-control">
-            <div id="zoneCaptain-error" class="bg-danger"></div>
+            <label for="name" class="control-label">Your Name <span class="text-danger">*</span></label>
+            <input type="text" name="name" id="name" placeholder="Your Name" required class="form-control">
+            <div id="name-error" class="bg-danger"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="control-label">Email (only used if we have questions) <span class="text-danger">*</span></label>
+            <input type="email" name="email" id="email" placeholder="Your Email" required class="form-control">
+            <div id="email-error" class="bg-danger"></div>
           </div>
 
           <div class="form-group">
@@ -38,7 +44,7 @@
           </div>
 
           <div class="form-group">
-            <label for="poundsCollected" class="control-label">Estimated Weight (lbs) <span class="text-danger">*</span></label>
+            <label for="poundsCollected" class="control-label">Estimated Weight of Debris Collected (lbs) <span class="text-danger">*</span></label>
             <input type="number" name="poundsCollected" id="poundsCollected" min="0" required step="0.01" class="form-control">
             <div id="poundsCollected-error" class="bg-danger"></div>
             {{#if displayPoundsHelp}}
@@ -75,19 +81,16 @@
           </div>
 
           <div class="form-group">
-            <label for="activeMilitary" class="control-label">Active Military (number)</label>
-            <input type="number" name="activeMilitary" id="activeMilitary" min="0" pattern="[0-9]*" class="form-control">
-          </div>
-
-          <div class="form-group">
-            <label for="boats" class="control-label">Boats Used for Cleanup (number)</label>
-            <input type="number" name="boats" id="boats" min="0" pattern="[0-9]*" class="form-control">
+            <label for="note" class="control-label">Anything else to report/mention/suggest?</label>
+            <input type="text" name="note" id="note" class="form-control">
           </div>
 
           <div class="form-group">
             <label for="trashPickup" class="checkbox-inline">
               <input type="checkbox" name="trashPickup" id="trashPickup">
-              <strong>Trash Pickup (must be pre-arranged)</strong>
+              <strong>Did You Arrange For Trash Pickup?<br/>
+                <small>Note that CBF doesn't provide this service.</small>
+              </strong>
             </label>
           </div>
 

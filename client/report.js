@@ -76,7 +76,7 @@ Template.report.events({
     Session.set("moreDetail", false);
   },
   'click .download': function (e) {
-    csv = json2csv(ZoneReports.find().fetch(), true, true);
+    csv = json2csv(ZoneReports.find({}, {fields: {email: 0, _id:0 , note: 0}}).fetch(), true, true);
     e.target.href = "data:text/csv;charset=utf-8," + escape(csv);
     e.target.download = "ctbd2014reports.csv";
   }
