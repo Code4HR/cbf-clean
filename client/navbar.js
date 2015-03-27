@@ -1,13 +1,16 @@
 // controls navbar state
-Template.navbar.formActive = function () {
-  if (Session.get("formActive")) {
-    return "active";
-  }
-};
+Template.navbar.helpers({
 
-// controls navbar state
-Template.navbar.reportActive = function () {
-  if (Session.get("reportActive")) {
-    return "active";
+  formActive : function () {
+    if (Session.get("formActive")) {
+      return "active";
+    }
+  },
+
+  // controls navbar state
+  reportActive : function () {
+    if (Session.get("reportActive")) {
+      return "active";
+    }
   }
-};
+});

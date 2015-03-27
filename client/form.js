@@ -13,19 +13,20 @@ Meteor.startup(function() {
   });
 });
 
-Template.form.partners = function () {
-  // return Partners.find({}, {sort: {name: 1}});
-  return Partners.find();
-};
+Template.form.helpers({
+  partners : function () {
+    // return Partners.find({}, {sort: {name: 1}});
+    return Partners.find();
+  },
 
-Template.form.displayMilesHelp = function () {
-  return Session.get("milesHelp");
-};
+  displayMilesHelp : function () {
+    return Session.get("milesHelp");
+  },
 
-Template.form.displayPoundsHelp = function () {
-  return Session.get("poundsHelp");
-};
-
+  displayPoundsHelp : function () {
+    return Session.get("poundsHelp");
+  }
+});
 
 Template.form.events({
 

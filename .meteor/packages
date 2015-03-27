@@ -6,8 +6,9 @@
 autopublish
 insecure
 standard-app-packages
-iron-router
 jquery
-bootstrap-3
-regulate.js
-json2csv
+twbs:bootstrap
+iron:router
+daniel:regulate.js
+axw:json2csv
+fezvrasta:bootstrap-material-design

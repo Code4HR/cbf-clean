@@ -16,46 +16,50 @@ var totals = function (reports) {
   Session.set("totalMiles", totalMiles.toFixed(1));
 };
 
-Template.report.partners = function () {
+Template.report.helpers({
   // return Partners.find({}, {sort: {name: 1}});
-  return Partners.find();
-};
+  partners : function () {
+    return Partners.find();
+  },
 
-Template.report.moreDetail = function () {
-  return Session.get("moreDetail");
-};
+  moreDetail : function () {
+    return Session.get("moreDetail");
+  }
+});
 
-Template.reportDetail.reports = function () {
-  // var partnerSelected = Session.get("partnerSelected");
-  // var reports;
-  // if (partnerSelected === "All") {
+Template.reportDetail.helpers({
+  reports : function () {
+    // var partnerSelected = Session.get("partnerSelected");
+    // var reports;
+    // if (partnerSelected === "All") {
     reports = ZoneReports.find({}, {sort: {"createdAt": -1}});
-  // } else {
-  //   reports = ZoneReports.find({"partner": partnerSelected}, {sort: {"createdAt": -1}});
-  // }
-  totals(reports);
-  return reports;
-};
+    // } else {
+    //   reports = ZoneReports.find({"partner": partnerSelected}, {sort: {"createdAt": -1}});
+    // }
+    totals(reports);
+    return reports;
+  },
 
-Template.reportDetail.moreDetail = function () {
-  return Session.get("moreDetail");
-};
+  moreDetail : function () {
+    return Session.get("moreDetail");
+  },
 
-Template.reportDetail.totalReports = function () {
-  return Session.get("totalReports");
-};
+  totalReports : function () {
+    return Session.get("totalReports");
+  },
 
-Template.reportDetail.totalVolunteers = function () {
-  return Session.get("totalVolunteers");
-};
+  totalVolunteers : function () {
+    return Session.get("totalVolunteers");
+  },
 
-Template.reportDetail.totalPounds = function () {
-  return Session.get("totalPounds");
-};
+  totalPounds : function () {
+    return Session.get("totalPounds");
+  },
 
-Template.reportDetail.totalMiles = function () {
-  return Session.get("totalMiles");
-};
+  totalMiles : function () {
+    return Session.get("totalMiles");
+  }
+});
 
 Template.report.events({
   'change .select-partner' : function () {
@@ -78,6 +82,6 @@ Template.report.events({
   'click .download': function (e) {
     csv = json2csv(ZoneReports.find({}, {fields: {email: 0, _id:0 , note: 0}}).fetch(), true, true);
     e.target.href = "data:text/csv;charset=utf-8," + escape(csv);
-    e.target.download = "ctbd2014reports.csv";
+    e.target.download = "ctbd2015reports.csv";
   }
 });
