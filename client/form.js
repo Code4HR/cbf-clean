@@ -4,9 +4,9 @@ Meteor.startup(function() {
   //validate form on client, then submit to server function logReport
   Regulate.form.onSubmit(function (error, data) {
     if (error) {
-      // console.log("The error", error);
+       console.log("The error", error);
     } else {
-      // console.log("The data", data);
+       console.log("The data", data);
       Meteor.call("logReport", data);
       Router.go("thankyou");
     }
@@ -15,8 +15,8 @@ Meteor.startup(function() {
 
 Template.form.helpers({
   partners : function () {
-    // return Partners.find({}, {sort: {name: 1}});
-    return Partners.find();
+     return Partners.find({}, {sort: {name: 1}});
+    //return Partners.find();
   },
 
   displayMilesHelp : function () {
