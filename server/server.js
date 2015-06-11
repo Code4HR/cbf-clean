@@ -42,7 +42,7 @@ Meteor.startup(
     "SP - Chippokes Plantation State Park",
     "SP - Douthat State Park",
     "SP - False Cape State Park",
-    "SP - High Bridge Trail State Park",
+    "SP - High Bridge Trail State Park/Clean Virginia Waterways",
     "SP - Holliday Lake State Park",
     "SP - James River State Park",
     "SP - Kiptopeke State Park",
