@@ -1,0 +1,11 @@
+meteor:
+  image: code4hr/cbf-clean
+  expose:
+    - "80"
+  environment:
+   - MONGO_URL=mongodb://mongo/ctbd
+   - ROOT_URL=http://www.cleanthebayday.net
+   - MAIL_URL=smtp://some.mailserver.com:25
+mongo:
+  image: 
+

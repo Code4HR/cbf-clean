@@ -12,3 +12,5 @@ iron:router
 daniel:regulate.js
 axw:json2csv
 fezvrasta:bootstrap-material-design
+standard-minifier-css
+standard-minifier-js
