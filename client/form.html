@@ -1,6 +1,6 @@
 <template name="form">
   <div class="page-header">
-    <h1 class="text-center">Submit Your Zone Report</h1>
+    <h1 class="text-center">Submit Your Zone Captain Report</h1>
     <h3 class="text-center"><span class="text-danger">*</span> is required</h3>
   </div>
   <form role="form" id="form" name="form" class="form-horizontal">
@@ -18,6 +18,12 @@
             <label for="email" class="control-label">Email (not public, only used if we have questions) <span class="text-danger">*</span></label>
             <input type="email" name="email" id="email" placeholder="Your Email" required class="form-control">
             <div id="email-error" class="bg-danger"></div>
+          </div>
+
+          <div class="form-group">
+            <label for="phone" class="control-label">Cell Phone (not public, only used if we have questions) <span class="text-danger">*</span></label>
+            <input type="tel" name="phone" id="phone" placeholder="Your Phone" required class="form-control">
+            <div id="phone-error" class="bg-danger"></div>
           </div>
 
           <div class="form-group">
@@ -103,7 +109,8 @@
 <template name="poundsHelp">
   <p class="alert alert-warning">
     <button type="button" class="close closePoundsHelp">&times;</button>
-    <strong>Estimated weidghts for debris collected</strong><br/><br/>
+    <strong>Estimated weights for debris collected</strong><br/>
+    (these are generic estimates – please just make your best guess!)<br/><br/>
     Automobile parts:25 lbs.<br/>
     Metal container:50 lbs.<br/>
     Bag of litter:15-25 lbs.<br/>
@@ -125,25 +132,30 @@
 <template name="milesHelp">
   <p class="alert alert-warning">
     <button type="button" class="close closeMilesHelp">&times;</button>
-    <strong>Estimating Distance to be Cleaned</strong><br/><br/>
-    Estimate the longest linear length
-    (i.e., from point A to point B along the beach/shore)
-    to be cleaned by the volunteers. Do not report area measurements,
-    such as square feet/miles. Use the following method to convert
-    area measurements to linear distances: <br/><br/>
+    <strong>Estimating Distance Cleaned</strong><br/><br/>
+    Distance should be reported as miles and is based on “ten foot wide strips”
+    (10 feet represents an average path/strip cleaned by a volunteer, i.e. 5
+    feet on each side of the person.)  A typical river or creek shoreline is
+    about 10 feet wide/deep.  A stretch of beach however, could have multiple “ten foot
+    strips” (see example 1 below).  Please consider this so as not to
+    under-report your mileage.
 
-    (Number of square feet
-    cleaned) ÷ 10 ft. ÷ 5280 ft. = (linear miles cleaned)<br/><br/>
+    5280 feet = 1 mile<br/><br/>
 
-    10 feet represents an average linear path cleaned by a volunteer
-    (5 feet on each side of the person)<br/><br/>
+    Example 1: You cleaned a beach .25 mi long and 40 ft deep:
+    .25 x 40 ÷ 10 = 1 mile<br/><br/>
 
-    5280 ft. = 1 mile<br/>
-    43,560 ft. = 1 acre<br/><br/>
+    Example 2: You cleaned 500 ft of shoreline that was 50 ft deep:
+    500 x 50  = 2500 ft<br/>
+    Then: 2500 ft ÷ 5280 = 0.47 miles (Estimated .5 miles)<br/><br/>
 
-    Example 1: You plan to clean a 1-acre area:
-     43,560 ÷ 10 ÷ 5280 = 0.825 miles cleaned<br/><br/>
+    Do NOT report area measurements, such as square feet or square miles.
+    Use the following method to convert area measurements to linear distances: <br/><br/>
 
-    Example 2: You plan to clean 5000 ft of shoreline: 5000 ÷ 10 ÷ 5280 = 0.094 miles
+    (Number of square feet cleaned) ÷ 10 ft. ÷ 5280 ft. = (linear miles cleaned)<br/><br/>
+
+    43,560 square feet = 1 acre<br/><br/>
+
+    Example 3: You cleaned a 1-acre area: 43,560 ÷ 10 ÷ 5280 = 0.825 miles cleaned
   </p>
 </template>

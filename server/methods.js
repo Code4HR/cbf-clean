@@ -12,19 +12,20 @@ Meteor.methods({
 
         // Regulate.js isn't handeling the checkbox correctly
         // TODO: improve this to be less hacky or replace Regulate.js validation
-        var trashPickup = _.isUndefined(data[10]) ? false : true;
+        var trashPickup = _.isUndefined(data[11]) ? false : true;
 
         ZoneReports.insert({
           name: data[0].value,
           email: data[1].value,
-          partner: data[2].value,
-          volunteers: data[3].value,
-          poundsCollected: data[4].value,
-          milesCleaned: data[5].value,
-          mostUnusualItem: data[6].value,
-          mostCommonItem: data[7].value,
-          largestItem: data[8].value,
-          note: data[9].value,
+          phone: data[2].value,
+          partner: data[3].value,
+          volunteers: data[4].value,
+          poundsCollected: data[5].value,
+          milesCleaned: data[6].value,
+          mostUnusualItem: data[7].value,
+          mostCommonItem: data[8].value,
+          largestItem: data[9].value,
+          note: data[10].value,
           trashPickup: trashPickup,
           createdAt: new Date()
         });
