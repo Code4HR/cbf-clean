@@ -30,19 +30,23 @@ Template.form.helpers({
 
 Template.form.events({
 
-  "click .poundsHelp" : function () {
+  "click .poundsHelp" : function (e, t) {
+    e.preventDefault();
     Session.set("poundsHelp", true);
   },
 
-  "click .closePoundsHelp" : function () {
+  "click .closePoundsHelp" : function (e, t) {
+    e.preventDefault();
     Session.set("poundsHelp", false);
   },
 
-  "click .milesHelp" : function () {
+  "click .milesHelp" : function (e, t) {
+    e.preventDefault();
     Session.set("milesHelp", true);
   },
 
-  "click .closeMilesHelp" : function () {
+  "click .closeMilesHelp" : function (e, t) {
+    e.preventDefault();
     Session.set("milesHelp", false);
   },
 
